@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "terrarianmight:block/small_life_crystal_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "terrarianmight:block/small_life_crystal_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "terrarianmight:block/small_life_crystal_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "terrarianmight:block/small_life_crystal_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "terrarianmight:block/small_life_crystal_bud"
+    },
+    "facing=west": {
+      "model": "terrarianmight:block/small_life_crystal_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

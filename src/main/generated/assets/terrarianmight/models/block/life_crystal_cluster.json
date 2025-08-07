@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "terrarianmight:block/life_crystal_cluster"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "item.life_crystal.use": {
+    "subtitle": "subtitle.terrarianmight.life_crystal.use",
+    "sounds": [
+      "terrarianmight:item/life_crystal/use1",
+      "terrarianmight:item/life_crystal/use2",
+      "terrarianmight:item/life_crystal/use3",
+      "terrarianmight:item/life_crystal/use4"
+    ]
+  },
+  "item.life_fruit.finish": {
+    "sounds": [
+      "terrarianmight:item/life_fruit/finish"
+    ]
+  },
+  "block.heart_lantern.crack1": {
+    "subtitle": "subtitle.terrarianmight.heart_lantern.crack1",
+    "sounds": [
+      "terrarianmight:block/heart_lantern/crack1"
+    ]
+  },
+  "block.heart_lantern.crack2": {
+    "subtitle": "subtitle.terrarianmight.heart_lantern.crack2",
+    "sounds": [
+      "terrarianmight:block/heart_lantern/crack2"
+    ]
+  },
+  "block.heart_lantern.crack3": {
+    "subtitle": "subtitle.terrarianmight.heart_lantern.crack3",
+    "sounds": [
+      "terrarianmight:block/heart_lantern/crack3"
+    ]
+  },
+  "block.heart_lantern.repair": {
+    "subtitle": "subtitle.terrarianmight.heart_lantern.repair",
+    "sounds": [
+      "terrarianmight:block/heart_lantern/repair1",
+      "terrarianmight:block/heart_lantern/repair2",
+      "terrarianmight:block/heart_lantern/repair3",
+      "terrarianmight:block/heart_lantern/repair4",
+      "terrarianmight:block/heart_lantern/repair5",
+      "terrarianmight:block/heart_lantern/repair6"
+    ]
+  },
+  "music_disc.heartfelt": {
+    "sounds": [
+      {
+        "name": "terrarianmight:music/jukebox/heartfelt",
+        "stream": true
+      }
+    ]
+  }
+}

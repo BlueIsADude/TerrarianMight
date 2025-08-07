@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "terrarianmight",
+  "version": "${version}",
+  "name": "Terrarian Might",
+  "description": "Adds content from Terraria, without overshadowing Minecraft's content.",
+  "authors": [
+    "BlueTheDude"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/terrarianmight/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "net.bluethedude.terrarianmight.TerrarianMightDataGenerator"
+    ],
+    "client": [
+      "net.bluethedude.terrarianmight.TerrarianMightClient"
+    ],
+    "main": [
+      "net.bluethedude.terrarianmight.TerrarianMight"
+    ]
+  },
+  "mixins": [
+    "terrarianmight.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

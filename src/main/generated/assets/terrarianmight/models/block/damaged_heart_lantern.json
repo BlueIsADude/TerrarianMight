@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_lantern",
+  "textures": {
+    "lantern": "terrarianmight:block/damaged_heart_lantern"
+  }
+}

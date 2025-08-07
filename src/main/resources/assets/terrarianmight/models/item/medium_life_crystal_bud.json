@@ -1,0 +1,11 @@
+{
+  "parent": "terrarianmight:item/life_crystal_bud",
+  "textures": {
+    "layer0": "terrarianmight:block/medium_life_crystal_bud"
+  },
+  "display": {
+    "fixed": {
+      "translation": [ 0, 6, 0 ]
+    }
+  }
+}

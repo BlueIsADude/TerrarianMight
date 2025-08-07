@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "terrarianmight:block/damaged_heart_lantern"
+    },
+    "hanging=true": {
+      "model": "terrarianmight:block/damaged_heart_lantern_hanging"
+    }
+  }
+}

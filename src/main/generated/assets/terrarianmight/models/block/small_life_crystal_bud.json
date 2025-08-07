@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "terrarianmight:block/small_life_crystal_bud"
+  }
+}

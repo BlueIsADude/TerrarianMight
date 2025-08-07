@@ -1,0 +1,84 @@
+{
+  "terrarianmight.midnightconfig.title": "Terrarian Might",
+
+  "terrarianmight.midnightconfig.category.healthyDose": "Healthy Dose",
+  "terrarianmight.midnightconfig.category.glimmeringDecay": "Coming Soon... :)",
+
+  "terrarianmight.midnightconfig.lifeCrystals": "Life Crystals",
+  "terrarianmight.midnightconfig.buddingLifeCrystals": "Budding Life Crystals",
+  "terrarianmight.midnightconfig.lifeFruit": "Life Fruit",
+  "terrarianmight.midnightconfig.heartLanterns": "Heart Lanterns",
+
+  "terrarianmight.midnightconfig.crystalHealthGain": "Life Crystal Health Gain",
+  "terrarianmight.midnightconfig.crystalMaxHealth": "Life Crystal Max Health",
+  "terrarianmight.midnightconfig.crystalCooldown": "Life Crystal Cooldown",
+  "terrarianmight.midnightconfig.crystalGrowthChance": "Budding Life Crystal Growth Chance",
+  "terrarianmight.midnightconfig.fruitNeedsMaxHealth": "Life Fruit Needs Max Health",
+  "terrarianmight.midnightconfig.fruitCooldown": "Life Fruit Cooldown",
+  "terrarianmight.midnightconfig.fruitDuration": "Life Fruit Duration",
+  "terrarianmight.midnightconfig.fruitAmplifier": "Life Fruit Amplifier",
+  "terrarianmight.midnightconfig.lanternRepair": "Heart Lantern Repairing",
+  "terrarianmight.midnightconfig.lanternDuration": "Heart Lantern Duration",
+  "terrarianmight.midnightconfig.lanternAmplifier": "Heart Lantern Amplifier",
+
+  "terrarianmight.midnightconfig.crystalHealthGain.label.tooltip": "The amount of health you gain from using a Life Crystal.",
+  "terrarianmight.midnightconfig.crystalMaxHealth.label.tooltip": "The maximum amount of health you can gain from Life Crystals.",
+  "terrarianmight.midnightconfig.crystalCooldown.label.tooltip": "The amount of time Life Crystals will be on cooldown for after using.",
+  "terrarianmight.midnightconfig.crystalGrowthChance.label.tooltip": "The max amount of time it takes for Life Crystal buds to grow. (Budding Amethyst Value = 5)",
+  "terrarianmight.midnightconfig.fruitNeedsMaxHealth.label.tooltip": "Whether or not Life Fruit need max health to eat.",
+  "terrarianmight.midnightconfig.fruitCooldown.label.tooltip": "The amount of time Life Fruit will be on cooldown for after eating.",
+  "terrarianmight.midnightconfig.fruitDuration.label.tooltip": "The amount of time the Health Boost effect gained from Life Fruit lasts for.",
+  "terrarianmight.midnightconfig.fruitDuration.tooltip": "NOTE: This option requires a game restart to be applied.",
+  "terrarianmight.midnightconfig.fruitAmplifier.label.tooltip": "The amplifier of the Health Boost effect gained from Life Fruit.",
+  "terrarianmight.midnightconfig.fruitAmplifier.tooltip": "NOTE: This option requires a game restart to be applied.",
+  "terrarianmight.midnightconfig.lanternRepair.label.tooltip": "Whether or not you can repair Heart Lanterns with Life Shards.",
+  "terrarianmight.midnightconfig.lanternDuration.label.tooltip": "The amount of time the Regeneration effect gained from Heart Lanterns lasts for.",
+  "terrarianmight.midnightconfig.lanternAmplifier.label.tooltip": "The amplifier of the Regeneration effect gained from Heart Lanterns.",
+
+
+  "tag.item.terrarianmight.heart_lanterns": "Heart Lanterns",
+  "tag.item.terrarianmight.budding_life_crystals": "Budding Life Crystals",
+
+
+  "item.terrarianmight.life_shard": "Life Shard",
+
+  "item.terrarianmight.life_crystal": "Life Crystal",
+  "item.terrarianmight.life_fruit": "Life Fruit",
+
+
+  "item.terrarianmight.music_disc_heartfelt": "Music Disc",
+  "jukebox_song.terrarianmight.heartfelt": "BlueTheDude - Heartfelt",
+
+
+  "block.terrarianmight.budding_life_crystal": "Budding Life Crystal",
+  "block.terrarianmight.deepslate_budding_life_crystal": "Deepslate Budding Life Crystal",
+  "block.terrarianmight.small_life_crystal_bud": "Small Life Crystal Bud",
+  "block.terrarianmight.medium_life_crystal_bud": "Medium Life Crystal Bud",
+  "block.terrarianmight.large_life_crystal_bud": "Large Life Crystal Bud",
+  "block.terrarianmight.life_crystal_cluster": "Life Crystal Cluster",
+
+  "block.terrarianmight.life_crystal_block": "Block of Life Crystal",
+
+  "block.terrarianmight.heart_lantern": "Heart Lantern",
+  "block.terrarianmight.chipped_heart_lantern": "Chipped Heart Lantern",
+  "block.terrarianmight.damaged_heart_lantern": "Damaged Heart Lantern",
+  "block.terrarianmight.broken_heart_lantern": "Broken Heart Lantern",
+
+
+  "subtitle.terrarianmight.life_crystal.use": "Life Crystal breaks",
+
+  "subtitle.terrarianmight.heart_lantern.crack1": "Heart Lantern cracks",
+  "subtitle.terrarianmight.heart_lantern.crack2": "Heart Lantern fractures",
+  "subtitle.terrarianmight.heart_lantern.crack3": "Heart Lantern shatters",
+  "subtitle.terrarianmight.heart_lantern.repair": "Heart Lantern is repaired",
+
+
+  "tooltip.terrarianmight.life_crystal.use": "When Used:",
+  "tooltip.terrarianmight.life_crystal.stats": "+%s Health Until Death",
+
+  "tooltip.terrarianmight.life_fruit.disallowed": "Inedible Until at Max Health",
+
+
+  "alert.terrarianmight.life_crystal_limit": "You have already reached max health!",
+  "alert.terrarianmight.life_fruit_disallowed": "You haven't reached max health yet!"
+}

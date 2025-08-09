@@ -44,13 +44,8 @@
                   "functions": [
                     {
                       "add": false,
-                      "count": 4.0,
+                      "count": 6.0,
                       "function": "minecraft:set_count"
-                    },
-                    {
-                      "enchantment": "minecraft:fortune",
-                      "formula": "minecraft:ore_drops",
-                      "function": "minecraft:apply_bonus"
                     }
                   ],
                   "name": "terrarianmight:life_shard"
@@ -60,7 +55,7 @@
                   "functions": [
                     {
                       "add": false,
-                      "count": 2.0,
+                      "count": 4.0,
                       "function": "minecraft:set_count"
                     },
                     {

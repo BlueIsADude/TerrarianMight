@@ -24,7 +24,7 @@ public class TerrarianPlacedFeatures {
 
         register(context, BUDDING_LIFE_CRYSTAL_PLACED_KEY, configuredFeatures.getOrThrow(TerrarianConfiguredFeatures.BUDDING_LIFE_CRYSTAL_KEY),
                 TerrarianOrePlacement.modifiersWithCount(6,
-                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))));
+                        HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(100))));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

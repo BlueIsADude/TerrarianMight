@@ -20,6 +20,7 @@
   "terrarianmight.midnightconfig.lanternRepair": "Heart Lantern Repairing",
   "terrarianmight.midnightconfig.lanternDuration": "Heart Lantern Duration",
   "terrarianmight.midnightconfig.lanternAmplifier": "Heart Lantern Amplifier",
+  "terrarianmight.midnightconfig.lanternScales": "Scaling Lantern Amplifier",
 
   "terrarianmight.midnightconfig.crystalHealthGain.label.tooltip": "The amount of health you gain from using a Life Crystal.",
   "terrarianmight.midnightconfig.crystalMaxHealth.label.tooltip": "The maximum amount of health you can gain from Life Crystals.",
@@ -34,6 +35,11 @@
   "terrarianmight.midnightconfig.lanternRepair.label.tooltip": "Whether or not you can repair Heart Lanterns with Life Shards.",
   "terrarianmight.midnightconfig.lanternDuration.label.tooltip": "The amount of time the Regeneration effect gained from Heart Lanterns lasts for.",
   "terrarianmight.midnightconfig.lanternAmplifier.label.tooltip": "The amplifier of the Regeneration effect gained from Heart Lanterns.",
+  "terrarianmight.midnightconfig.lanternScales.label.tooltip": "Whether or not the level of the Heart Lantern's amplifier increases (by 1) depending on its damaged state.",
+
+  "terrarianmight.midnightconfig.enum.LanternScalesEnum.TRUE": "§aYes",
+  "terrarianmight.midnightconfig.enum.LanternScalesEnum.INVERTED": "§eInverted",
+  "terrarianmight.midnightconfig.enum.LanternScalesEnum.FALSE": "§cNo",
 
 
   "tag.item.terrarianmight.heart_lanterns": "Heart Lanterns",

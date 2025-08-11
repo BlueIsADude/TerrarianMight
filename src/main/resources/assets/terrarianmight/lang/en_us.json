@@ -1,14 +1,15 @@
 {
   "terrarianmight.midnightconfig.title": "Terrarian Might",
 
-  "terrarianmight.midnightconfig.category.healthyDose": "Healthy Dose",
-  "terrarianmight.midnightconfig.category.glimmeringDecay": "Coming Soon... :)",
-
   "terrarianmight.midnightconfig.lifeCrystals": "Life Crystals",
   "terrarianmight.midnightconfig.buddingLifeCrystals": "Budding Life Crystals",
   "terrarianmight.midnightconfig.lifeFruit": "Life Fruit",
   "terrarianmight.midnightconfig.heartLanterns": "Heart Lanterns",
+  "terrarianmight.midnightconfig.miscOptions": "Miscellaneous Options",
 
+  "terrarianmight.midnightconfig.creativeTab": "Enable Creative Tab",
+  "terrarianmight.midnightconfig.baseHealth": "Base Player Health",
+  "terrarianmight.midnightconfig.crystalPermanentHealth": "Permanent Life Crystal Health",
   "terrarianmight.midnightconfig.crystalHealthGain": "Life Crystal Health Gain",
   "terrarianmight.midnightconfig.crystalMaxHealth": "Life Crystal Max Health",
   "terrarianmight.midnightconfig.crystalCooldown": "Life Crystal Cooldown",
@@ -22,24 +23,33 @@
   "terrarianmight.midnightconfig.lanternAmplifier": "Heart Lantern Amplifier",
   "terrarianmight.midnightconfig.lanternScales": "Scaling Lantern Amplifier",
 
+  "terrarianmight.midnightconfig.crystalPermanentHealth.label.tooltip": "Whether or not health gained from Life Crystals is permanent.",
+  "terrarianmight.midnightconfig.crystalPermanentHealth.tooltip": "NOTE: This option requires a world/server restart to be applied",
   "terrarianmight.midnightconfig.crystalHealthGain.label.tooltip": "The amount of health you gain from using a Life Crystal.",
-  "terrarianmight.midnightconfig.crystalMaxHealth.label.tooltip": "The maximum amount of health you can gain from Life Crystals.",
+  "terrarianmight.midnightconfig.crystalMaxHealth.label.tooltip": "The maximum amount of health you can gain from Life Crystals. This does not include the base health value.",
   "terrarianmight.midnightconfig.crystalCooldown.label.tooltip": "The amount of time Life Crystals will be on cooldown for after using.",
-  "terrarianmight.midnightconfig.crystalGrowthChance.label.tooltip": "The max amount of time it takes for Life Crystal buds to grow. (Budding Amethyst Value = 5)",
+  "terrarianmight.midnightconfig.crystalGrowthChance.label.tooltip": "The amount of random ticks it takes for Life Crystal buds to grow. (Budding Amethyst Value = 5)",
   "terrarianmight.midnightconfig.fruitNeedsMaxHealth.label.tooltip": "Whether or not Life Fruit need max health to eat.",
   "terrarianmight.midnightconfig.fruitCooldown.label.tooltip": "The amount of time Life Fruit will be on cooldown for after eating.",
   "terrarianmight.midnightconfig.fruitDuration.label.tooltip": "The amount of time the Health Boost effect gained from Life Fruit lasts for.",
-  "terrarianmight.midnightconfig.fruitDuration.tooltip": "NOTE: This option requires a game restart to be applied.",
+  "terrarianmight.midnightconfig.fruitDuration.tooltip": "NOTE: This option requires a full game relaunch to be applied",
   "terrarianmight.midnightconfig.fruitAmplifier.label.tooltip": "The amplifier of the Health Boost effect gained from Life Fruit.",
-  "terrarianmight.midnightconfig.fruitAmplifier.tooltip": "NOTE: This option requires a game restart to be applied.",
+  "terrarianmight.midnightconfig.fruitAmplifier.tooltip": "NOTE: This option requires a full game relaunch to be applied",
   "terrarianmight.midnightconfig.lanternRepair.label.tooltip": "Whether or not you can repair Heart Lanterns with Life Shards.",
   "terrarianmight.midnightconfig.lanternDuration.label.tooltip": "The amount of time the Regeneration effect gained from Heart Lanterns lasts for.",
   "terrarianmight.midnightconfig.lanternAmplifier.label.tooltip": "The amplifier of the Regeneration effect gained from Heart Lanterns.",
   "terrarianmight.midnightconfig.lanternScales.label.tooltip": "Whether or not the level of the Heart Lantern's amplifier increases (by 1) depending on its damaged state.",
+  "terrarianmight.midnightconfig.creativeTab.label.tooltip": "Whether a designated creative mode tab for the mod's content is added or not.",
+  "terrarianmight.midnightconfig.creativeTab.tooltip": "NOTE: This option requires a full game relaunch to be applied",
+  "terrarianmight.midnightconfig.baseHealth.label.tooltip": "The amount of health that the player starts off with. Due to its janky nature, this option may be removed in the future.",
+  "terrarianmight.midnightconfig.baseHealth.tooltip": "NOTE: This option requires death or a fresh save to be applied",
 
   "terrarianmight.midnightconfig.enum.LanternScalesEnum.TRUE": "§aYes",
   "terrarianmight.midnightconfig.enum.LanternScalesEnum.INVERTED": "§eInverted",
   "terrarianmight.midnightconfig.enum.LanternScalesEnum.FALSE": "§cNo",
+
+
+  "itemgroup.terrarianmight.title": "Terrarian Might",
 
 
   "tag.item.terrarianmight.heart_lanterns": "Heart Lanterns",
@@ -81,6 +91,7 @@
 
   "tooltip.terrarianmight.life_crystal.use": "When Used:",
   "tooltip.terrarianmight.life_crystal.stats": "+%s Health Until Death",
+  "tooltip.terrarianmight.life_crystal.stats_permanent": "+%s Health",
 
   "tooltip.terrarianmight.life_fruit.disallowed": "Inedible Until at Max Health",
 

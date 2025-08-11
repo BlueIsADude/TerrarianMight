@@ -54,11 +54,11 @@ public class TerrarianLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(TerrarianBlocks.LARGE_LIFE_CRYSTAL_BUD, dropsWithSilkTouch(TerrarianBlocks.LARGE_LIFE_CRYSTAL_BUD));
         addDrop(TerrarianBlocks.LIFE_CRYSTAL_CLUSTER,
                 block -> this.dropsWithSilkTouch(block, ItemEntry.builder(TerrarianItems.LIFE_SHARD)
-                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(6.0F)))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0F)))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ItemTags.CLUSTER_MAX_HARVESTABLES)))
                         .alternatively(
                                 this.applyExplosionDecay(
-                                        block, ItemEntry.builder(TerrarianItems.LIFE_SHARD).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(4.0F)))
+                                        block, ItemEntry.builder(TerrarianItems.LIFE_SHARD).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(2.0F)))
                                 )
                         )
                 )

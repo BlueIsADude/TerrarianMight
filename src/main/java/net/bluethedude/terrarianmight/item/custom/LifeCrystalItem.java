@@ -12,6 +12,7 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -23,7 +24,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class LifeCrystalItem extends Item {
-    public static final Identifier HEALTH_MODIFIER_ID = Identifier.of(TerrarianMight.MOD_ID, "crystal_boost");
+    public static final Identifier CRYSTAL_HEALTH_MODIFIER = Identifier.of(TerrarianMight.MOD_ID, "crystal_health");
     public LifeCrystalItem(Settings settings) {
         super(settings);
     }
@@ -32,43 +33,55 @@ public class LifeCrystalItem extends Item {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("tooltip.terrarianmight.life_crystal.use").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("tooltip.terrarianmight.life_crystal.stats", TerrarianConfig.crystalHealthGain).formatted(Formatting.BLUE));
+        if (!TerrarianConfig.crystalPermanentHealth) {
+            tooltip.add(Text.translatable("tooltip.terrarianmight.life_crystal.stats", TerrarianConfig.crystalHealthGain).formatted(Formatting.BLUE));
+        } else {
+            tooltip.add(Text.translatable("tooltip.terrarianmight.life_crystal.stats_permanent", TerrarianConfig.crystalHealthGain).formatted(Formatting.BLUE));
+        }
 
         super.appendTooltip(stack, context, tooltip, type);
     }
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        final var stack = user.getStackInHand(hand);
-        if (world.isClient) {
-            return TypedActionResult.fail(stack);
-        }
+        ItemStack itemStack = user.getStackInHand(hand);
+
         final var attribute = user.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
+        boolean hasModifier = Objects.requireNonNull(attribute).hasModifier(CRYSTAL_HEALTH_MODIFIER);
+        int maxHealth = hasModifier ? (int) Objects.requireNonNull(attribute.getModifier(CRYSTAL_HEALTH_MODIFIER)).value() + 20 : 20;
 
-        boolean hasModifier = Objects.requireNonNull(attribute).hasModifier(HEALTH_MODIFIER_ID);
-        int maxHealth = hasModifier ? (int) Objects.requireNonNull(attribute.getModifier(HEALTH_MODIFIER_ID)).value() + 20 : 20;
-
-        if (maxHealth >= TerrarianConfig.crystalMaxHealth) {
+        if (maxHealth >= TerrarianConfig.crystalMaxHealth + 20) {
             user.sendMessage(Text.translatable("alert.terrarianmight.life_crystal_limit").formatted(Formatting.RED), true);
-            return TypedActionResult.fail(stack);
+            return TypedActionResult.fail(itemStack);
+        }
+        world.playSound(
+                null,
+                user.getX(),
+                user.getY(),
+                user.getZ(),
+                TerrarianSoundEvents.ITEM_LIFE_CRYSTAL_USE,
+                SoundCategory.PLAYERS,
+                1.0F,
+                1.0F
+        );
+        if (!world.isClient) {
+            ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD,
+                    user.getX(),
+                    user.getY() + 1.2,
+                    user.getZ(),
+                    10, 0, 0, 0, 0.1
+            );
+            int increment = Math.min(TerrarianConfig.crystalHealthGain, TerrarianConfig.crystalMaxHealth + 20 - maxHealth);
+            maxHealth += increment;
+
+            int modifierValue = maxHealth - 20;
+
+            EntityAttributeModifier modifier = new EntityAttributeModifier(CRYSTAL_HEALTH_MODIFIER, modifierValue, EntityAttributeModifier.Operation.ADD_VALUE);
+            attribute.overwritePersistentModifier(modifier);
         }
 
-        ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD,
-                user.getPos().getX(),
-                user.getPos().getY() + 1.2,
-                user.getPos().getZ(),
-                10, 0, 0, 0, 0.1);
+        user.incrementStat(Stats.USED.getOrCreateStat(this));
         user.getItemCooldownManager().set(this, TerrarianConfig.crystalCooldown);
-        user.playSoundToPlayer(TerrarianSoundEvents.ITEM_LIFE_CRYSTAL_USE, SoundCategory.PLAYERS, 1.0f, 1.0f);
-        stack.decrementUnlessCreative(1, user);
-
-        int increment = Math.min(TerrarianConfig.crystalHealthGain, TerrarianConfig.crystalMaxHealth - maxHealth);
-        maxHealth += increment;
-
-        int modifierValue = maxHealth - 20;
-
-        EntityAttributeModifier modifier = new EntityAttributeModifier(HEALTH_MODIFIER_ID, modifierValue, EntityAttributeModifier.Operation.ADD_VALUE);
-        attribute.overwritePersistentModifier(modifier);
-
-        return TypedActionResult.success(stack);
+        itemStack.decrementUnlessCreative(1, user);
+        return TypedActionResult.success(itemStack);
     }
 }

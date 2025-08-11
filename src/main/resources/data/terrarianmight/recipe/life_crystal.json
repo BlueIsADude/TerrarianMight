@@ -1,18 +1,21 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "#": {
+  "ingredients": [
+    {
+      "item": "terrarianmight:life_shard"
+    },
+    {
+      "item": "terrarianmight:life_shard"
+    },
+    {
+      "item": "terrarianmight:life_shard"
+    },
+    {
       "item": "terrarianmight:life_shard"
     }
-  },
-  "pattern": [
-    "# #",
-    "###",
-    " # "
   ],
   "result": {
-    "count": 1,
     "id": "terrarianmight:life_crystal"
   }
 }

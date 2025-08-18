@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -18,6 +19,61 @@ public class TerrarianItemTagProvider extends FabricTagProvider.ItemTagProvider 
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(ItemTags.LOGS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG.asItem())
+                .add(TerrarianBlocks.YELLOW_WILLOW_WOOD.asItem())
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG.asItem())
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD.asItem());
+
+        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG.asItem())
+                .add(TerrarianBlocks.YELLOW_WILLOW_WOOD.asItem())
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG.asItem())
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD.asItem());
+
+        getOrCreateTagBuilder(ConventionalItemTags.STRIPPED_WOODS)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG.asItem())
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD.asItem());
+
+        getOrCreateTagBuilder(TerrarianTags.Items.YELLOW_WILLOW_LOGS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG.asItem())
+                .add(TerrarianBlocks.YELLOW_WILLOW_WOOD.asItem())
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG.asItem())
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD.asItem());
+
+        getOrCreateTagBuilder(ItemTags.PLANKS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_PLANKS.asItem());
+
+        getOrCreateTagBuilder(ItemTags.BUTTONS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_BUTTON.asItem());
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_BUTTON.asItem());
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE.asItem());
+
+        getOrCreateTagBuilder(ItemTags.FENCES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_FENCE.asItem());
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_FENCES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_FENCE.asItem());
+
+        getOrCreateTagBuilder(ItemTags.FENCE_GATES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE.asItem());
+
+        getOrCreateTagBuilder(ItemTags.DOORS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_DOOR.asItem());
+
+        getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_DOOR.asItem());
+
+        getOrCreateTagBuilder(ItemTags.SIGNS)
+                .add(TerrarianItems.YELLOW_WILLOW_SIGN_ITEM);
+
+        getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
+                .add(TerrarianItems.YELLOW_WILLOW_HANGING_SIGN_ITEM);
+
         getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS)
                 .add(TerrarianItems.MUSIC_DISC_HEARTFELT);
 

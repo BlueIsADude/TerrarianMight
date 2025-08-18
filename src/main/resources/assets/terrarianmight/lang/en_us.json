@@ -52,6 +52,7 @@
   "itemgroup.terrarianmight.title": "Terrarian Might",
 
 
+  "tag.item.terrarianmight.yellow_willow_logs": "Yellow Willow Logs",
   "tag.item.terrarianmight.heart_lanterns": "Heart Lanterns",
   "tag.item.terrarianmight.budding_life_crystals": "Budding Life Crystals",
 
@@ -60,6 +61,10 @@
 
   "item.terrarianmight.life_crystal": "Life Crystal",
   "item.terrarianmight.life_fruit": "Life Fruit",
+
+
+  "item.terrarianmight.yellow_willow_boat": "Yellow Willow Boat",
+  "item.terrarianmight.yellow_willow_chest_boat": "Yellow Willow Chest Boat",
 
 
   "item.terrarianmight.music_disc_heartfelt": "Music Disc",
@@ -79,6 +84,26 @@
   "block.terrarianmight.chipped_heart_lantern": "Chipped Heart Lantern",
   "block.terrarianmight.damaged_heart_lantern": "Damaged Heart Lantern",
   "block.terrarianmight.broken_heart_lantern": "Broken Heart Lantern",
+
+  "block.terrarianmight.yellow_willow_leaves": "Yellow Willow Leaves",
+  "block.terrarianmight.yellow_willow_log": "Yellow Willow Log",
+  "block.terrarianmight.yellow_willow_wood": "Yellow Willow Wood",
+  "block.terrarianmight.stripped_yellow_willow_log": "Stripped Yellow Willow Log",
+  "block.terrarianmight.stripped_yellow_willow_wood": "Stripped Yellow Willow Wood",
+  "block.terrarianmight.yellow_willow_sapling": "Yellow Willow Sapling",
+  "block.terrarianmight.potted_yellow_willow_sapling": "Potted Yellow Willow Sapling",
+
+  "block.terrarianmight.yellow_willow_planks": "Yellow Willow Planks",
+  "block.terrarianmight.yellow_willow_stairs": "Yellow Willow Stairs",
+  "block.terrarianmight.yellow_willow_slab": "Yellow Willow Slab",
+  "block.terrarianmight.yellow_willow_fence": "Yellow Willow Fence",
+  "block.terrarianmight.yellow_willow_fence_gate": "Yellow Willow Fence Gate",
+  "block.terrarianmight.yellow_willow_door": "Yellow Willow Door",
+  "block.terrarianmight.yellow_willow_trapdoor": "Yellow Willow Trapdoor",
+  "block.terrarianmight.yellow_willow_pressure_plate": "Yellow Willow Pressure Plate",
+  "block.terrarianmight.yellow_willow_button": "Yellow Willow Button",
+  "block.terrarianmight.yellow_willow_sign": "Yellow Willow Sign",
+  "block.terrarianmight.yellow_willow_hanging_sign": "Yellow Willow Hanging Sign",
 
 
   "subtitle.terrarianmight.life_crystal.use": "Life Crystal breaks",

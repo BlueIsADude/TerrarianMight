@@ -3,6 +3,7 @@ package net.bluethedude.terrarianmight.block.custom;
 import net.bluethedude.terrarianmight.TerrarianConfig;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
 import net.bluethedude.terrarianmight.item.TerrarianItems;
+import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -13,7 +14,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -84,15 +84,14 @@ public class HeartLanternBlock extends LanternBlock {
                     } else if (blockState.isOf(TerrarianBlocks.DAMAGED_HEART_LANTERN)) {
                         player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier));
                     }
-                }
-                else {
+                } else {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier));
                 }
-                ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD,
+                ((ServerWorld) world).spawnParticles(TerrarianParticleTypes.LIFE_HEART,
                         pos.getX() + 0.5,
-                        pos.getY() + 0.3,
+                        pos.getY() + 0.5,
                         pos.getZ() + 0.5,
-                        10, 0, 0, 0, 0.1);
+                        8, 0.25, 0.25, 0.25, 0);
             }
             if (blockState.isOf(TerrarianBlocks.HEART_LANTERN)) {
                 player.playSoundToPlayer(TerrarianSoundEvents.BLOCK_HEART_LANTERN_CRACK1, SoundCategory.PLAYERS, 0.5f, 1.0f);

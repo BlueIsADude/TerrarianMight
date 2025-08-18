@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:lantern"
+    },
+    "X": {
+      "item": "terrarianmight:life_shard"
+    }
+  },
+  "pattern": [
+    " X ",
+    "X#X",
+    " X "
+  ],
+  "result": {
+    "count": 1,
+    "id": "terrarianmight:heart_lantern"
+  }
+}

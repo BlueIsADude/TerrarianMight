@@ -1,9 +1,16 @@
 package net.bluethedude.terrarianmight;
 
+import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
+import net.bluethedude.terrarianmight.block.TerrarianWoodType;
+import net.bluethedude.terrarianmight.entity.TerrarianBoats;
+import net.bluethedude.terrarianmight.particle.LifeHeartParticle;
+import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.TexturedRenderLayers;
 
 public class TerrarianMightClient implements ClientModInitializer {
 
@@ -18,5 +25,17 @@ public class TerrarianMightClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.CHIPPED_HEART_LANTERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.DAMAGED_HEART_LANTERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.BROKEN_HEART_LANTERN, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.YELLOW_WILLOW_LEAVES, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.YELLOW_WILLOW_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.POTTED_YELLOW_WILLOW_SAPLING, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.YELLOW_WILLOW_DOOR, RenderLayer.getCutout());
+
+        ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.LIFE_HEART, LifeHeartParticle.Factory::new);
+
+        TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(TerrarianWoodType.YELLOW_WILLOW, TexturedRenderLayers.getSignTextureId(TerrarianWoodType.YELLOW_WILLOW));
+
+        TerraformBoatClientHelper.registerModelLayers(TerrarianBoats.YELLOW_WILLOW_BOAT_ID, false);
     }
 }

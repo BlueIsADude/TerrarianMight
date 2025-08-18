@@ -1,13 +1,14 @@
 package net.bluethedude.terrarianmight.item;
 
+import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.bluethedude.terrarianmight.TerrarianMight;
+import net.bluethedude.terrarianmight.block.TerrarianBlocks;
+import net.bluethedude.terrarianmight.entity.TerrarianBoats;
 import net.bluethedude.terrarianmight.item.custom.LifeCrystalItem;
 import net.bluethedude.terrarianmight.item.custom.LifeFruitItem;
 import net.bluethedude.terrarianmight.sound.TerrarianJukeboxSongs;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -36,6 +37,23 @@ public class TerrarianItems {
             )
     );
 
+    public static final Item YELLOW_WILLOW_SIGN_ITEM = registerItem("yellow_willow_sign",
+            new SignItem(new Item.Settings(), TerrarianBlocks.YELLOW_WILLOW_SIGN, TerrarianBlocks.YELLOW_WILLOW_WALL_SIGN));
+    public static final Item YELLOW_WILLOW_HANGING_SIGN_ITEM = registerItem("yellow_willow_hanging_sign",
+            new HangingSignItem(TerrarianBlocks.YELLOW_WILLOW_HANGING_SIGN, TerrarianBlocks.YELLOW_WILLOW_WALL_HANGING_SIGN, new Item.Settings()));
+
+    public static final Item YELLOW_WILLOW_BOAT = TerraformBoatItemHelper.registerBoatItem(
+            TerrarianBoats.YELLOW_WILLOW_BOAT_ID,
+            TerrarianBoats.YELLOW_WILLOW_BOAT_KEY,
+            false
+    );
+    public static final Item YELLOW_WILLOW_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(
+            TerrarianBoats.YELLOW_WILLOW_CHEST_BOAT_ID,
+            TerrarianBoats.YELLOW_WILLOW_BOAT_KEY,
+            true
+    );
+
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(TerrarianMight.MOD_ID, name), item);
     }
@@ -43,6 +61,8 @@ public class TerrarianItems {
     public static void registerTerrarianItems() {
         TerrarianMight.LOGGER.info("Registering Mod Items for " + TerrarianMight.MOD_ID);
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries ->
+                entries.addBefore(Items.BAMBOO_SIGN, YELLOW_WILLOW_SIGN_ITEM, YELLOW_WILLOW_HANGING_SIGN_ITEM));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries ->
                 entries.add(MUSIC_DISC_HEARTFELT));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries ->

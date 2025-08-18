@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button_pressed",
+  "textures": {
+    "texture": "terrarianmight:block/yellow_willow_planks"
+  }
+}

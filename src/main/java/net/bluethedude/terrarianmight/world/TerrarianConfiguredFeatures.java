@@ -9,25 +9,45 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
+import net.minecraft.world.gen.foliage.CherryFoliagePlacer;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 
 import java.util.List;
 
 public class TerrarianConfiguredFeatures {
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BUDDING_LIFE_CRYSTAL_KEY = registerKey("budding_life_crystal");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BUDDING_LIFE_CRYSTAL = registerKey("budding_life_crystal");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> YELLOW_WILLOW = registerKey("yellow_willow");
+
+    public static TreeFeatureConfig.Builder yellowWillow() {
+        return new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(TerrarianBlocks.YELLOW_WILLOW_LOG),
+                new LargeOakTrunkPlacer(9, 7, 2),
+                BlockStateProvider.of(TerrarianBlocks.YELLOW_WILLOW_LEAVES),
+                new CherryFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), ConstantIntProvider.create(6),
+                        0.5F, 0.7F, 0.3F, 0.6F),
+                new TwoLayersFeatureSize(1, 0, 2)).ignoreVines();
+    }
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
+        List<OreFeatureConfig.Target> buddingLifeCrystals = getTargets();
+
+        register(context, BUDDING_LIFE_CRYSTAL, Feature.ORE, new OreFeatureConfig(buddingLifeCrystals, 3));
+
+        register(context, YELLOW_WILLOW, Feature.TREE, yellowWillow().build());
+    }
+
+    private static List<OreFeatureConfig.Target> getTargets() {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
         List<OreFeatureConfig.Target> buddingLifeCrystals =
                 List.of(OreFeatureConfig.createTarget(stoneReplaceables, TerrarianBlocks.BUDDING_LIFE_CRYSTAL.getDefaultState()),
                         OreFeatureConfig.createTarget(deepslateReplaceables, TerrarianBlocks.DEEPSLATE_BUDDING_LIFE_CRYSTAL.getDefaultState()));
-
-        register(context, BUDDING_LIFE_CRYSTAL_KEY, Feature.ORE, new OreFeatureConfig(buddingLifeCrystals, 3));
+        return buddingLifeCrystals;
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

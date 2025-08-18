@@ -70,5 +70,21 @@ public class TerrarianLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(TerrarianBlocks.CHIPPED_HEART_LANTERN, drops(TerrarianBlocks.CHIPPED_HEART_LANTERN));
         addDrop(TerrarianBlocks.DAMAGED_HEART_LANTERN, drops(TerrarianBlocks.DAMAGED_HEART_LANTERN));
         addDrop(TerrarianBlocks.BROKEN_HEART_LANTERN, drops(TerrarianBlocks.BROKEN_HEART_LANTERN));
+
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_LEAVES, leavesDrops(TerrarianBlocks.YELLOW_WILLOW_LEAVES, TerrarianBlocks.YELLOW_WILLOW_SAPLING, SAPLING_DROP_CHANCE));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_SAPLING, drops(TerrarianBlocks.YELLOW_WILLOW_SAPLING));
+        addDrop(TerrarianBlocks.POTTED_YELLOW_WILLOW_SAPLING, pottedPlantDrops(TerrarianBlocks.YELLOW_WILLOW_SAPLING));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_LOG, drops(TerrarianBlocks.YELLOW_WILLOW_LOG));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_WOOD, drops(TerrarianBlocks.YELLOW_WILLOW_WOOD));
+        addDrop(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG, drops(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG));
+        addDrop(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD, drops(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD));
+
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_PLANKS, drops(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_STAIRS, drops(TerrarianBlocks.YELLOW_WILLOW_STAIRS));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_SLAB, slabDrops(TerrarianBlocks.YELLOW_WILLOW_SLAB));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_BUTTON, drops(TerrarianBlocks.YELLOW_WILLOW_BUTTON));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE, drops(TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_FENCE, drops(TerrarianBlocks.YELLOW_WILLOW_FENCE));
+        addDrop(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE, drops(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE));
     }
 }

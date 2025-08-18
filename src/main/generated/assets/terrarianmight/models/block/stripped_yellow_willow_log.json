@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "terrarianmight:block/stripped_yellow_willow_log_top",
+    "side": "terrarianmight:block/stripped_yellow_willow_log"
+  }
+}

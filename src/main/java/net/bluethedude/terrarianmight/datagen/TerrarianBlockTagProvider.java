@@ -26,6 +26,73 @@ public class TerrarianBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(TerrarianBlocks.DEEPSLATE_BUDDING_LIFE_CRYSTAL)
                 .add(TerrarianBlocks.LIFE_CRYSTAL_BLOCK);
 
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.YELLOW_WILLOW_WOOD)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD)
+                .add(TerrarianBlocks.YELLOW_WILLOW_PLANKS);
+
+        getOrCreateTagBuilder(BlockTags.LOGS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.YELLOW_WILLOW_WOOD)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD);
+
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.YELLOW_WILLOW_WOOD)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD);
+
+        getOrCreateTagBuilder(TerrarianTags.Blocks.YELLOW_WILLOW_LOGS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.YELLOW_WILLOW_WOOD)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG)
+                .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD);
+
+        getOrCreateTagBuilder(BlockTags.PLANKS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_PLANKS);
+
+        getOrCreateTagBuilder(BlockTags.BUTTONS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_BUTTON);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_BUTTON);
+
+        getOrCreateTagBuilder(BlockTags.PRESSURE_PLATES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE);
+
+        getOrCreateTagBuilder(BlockTags.FENCES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_FENCE);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_FENCE);
+
+        getOrCreateTagBuilder(BlockTags.FENCE_GATES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE);
+
+        getOrCreateTagBuilder(BlockTags.DOORS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_DOOR);
+
+        getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_DOOR);
+
+        getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_WALL_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_HANGING_SIGN);
+
+        getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_WALL_HANGING_SIGN);
+
         getOrCreateTagBuilder(TerrarianTags.Blocks.BUDDING_LIFE_CRYSTALS)
                 .add(TerrarianBlocks.BUDDING_LIFE_CRYSTAL)
                 .add(TerrarianBlocks.DEEPSLATE_BUDDING_LIFE_CRYSTAL);

@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.10.5'
+    id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -24,7 +24,12 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven {
+        name = 'Modrinth'
         url = "https://api.modrinth.com/maven"
+    }
+    maven {
+        name = 'TerraformersMC'
+        url = 'https://maven.terraformersmc.com/'
     }
 }
 
@@ -35,6 +40,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modApi include ("com.terraformersmc.terraform-api:terraform-wood-api-v1:11.0.0")
 
     modApi include ("maven.modrinth:midnightlib:${project.midnightlib_version}")
 }

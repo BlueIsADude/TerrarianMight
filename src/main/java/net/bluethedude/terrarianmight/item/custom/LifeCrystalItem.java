@@ -2,6 +2,7 @@ package net.bluethedude.terrarianmight.item.custom;
 
 import net.bluethedude.terrarianmight.TerrarianMight;
 import net.bluethedude.terrarianmight.TerrarianConfig;
+import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -9,7 +10,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -64,11 +64,11 @@ public class LifeCrystalItem extends Item {
                 1.0F
         );
         if (!world.isClient) {
-            ((ServerWorld) world).spawnParticles(ParticleTypes.END_ROD,
+            ((ServerWorld) world).spawnParticles(TerrarianParticleTypes.LIFE_HEART,
                     user.getX(),
-                    user.getY() + 1.2,
+                    user.getY() + 0.75,
                     user.getZ(),
-                    10, 0, 0, 0, 0.1
+                    10, 0.3, 0.3, 0.3, 0.1
             );
             int increment = Math.min(TerrarianConfig.crystalHealthGain, TerrarianConfig.crystalMaxHealth + 20 - maxHealth);
             maxHealth += increment;

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "terrarianmight:block/yellow_willow_slab"
+    },
+    "type=double": {
+      "model": "terrarianmight:block/yellow_willow_planks"
+    },
+    "type=top": {
+      "model": "terrarianmight:block/yellow_willow_slab_top"
+    }
+  }
+}

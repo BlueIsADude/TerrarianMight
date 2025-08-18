@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_life_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": "terrarianmight:life_shard"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "terrarianmight:heart_lantern"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_life_shard"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "terrarianmight:heart_lantern"
+    ]
+  }
+}

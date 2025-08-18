@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "terrarianmight:block/yellow_willow_planks",
+    "side": "terrarianmight:block/yellow_willow_planks",
+    "top": "terrarianmight:block/yellow_willow_planks"
+  }
+}

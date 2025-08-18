@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "terrarianmight:yellow_willow_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "terrarianmight:yellow_willow_planks"
+  }
+}

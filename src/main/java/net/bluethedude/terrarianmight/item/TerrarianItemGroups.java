@@ -13,9 +13,28 @@ import net.minecraft.util.Identifier;
 public class TerrarianItemGroups {
     public static final ItemGroup TERRARIAN_MIGHT_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(TerrarianMight.MOD_ID, "terrarian_might"),
-            FabricItemGroup.builder().icon(() -> new ItemStack(TerrarianItems.LIFE_CRYSTAL))
+            FabricItemGroup.builder().icon(() -> new ItemStack(TerrarianBlocks.YELLOW_WILLOW_SAPLING))
                     .displayName(Text.translatable("itemgroup.terrarianmight.title"))
                     .entries((displayContext, entries) -> {
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_SAPLING);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_LEAVES);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_LOG);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_WOOD);
+                        entries.add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG);
+                        entries.add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_PLANKS);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_STAIRS);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_SLAB);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_FENCE);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_DOOR);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_TRAPDOOR);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_BUTTON);
+                        entries.add(TerrarianItems.YELLOW_WILLOW_SIGN_ITEM);
+                        entries.add(TerrarianItems.YELLOW_WILLOW_HANGING_SIGN_ITEM);
+                        entries.add(TerrarianItems.YELLOW_WILLOW_BOAT);
+                        entries.add(TerrarianItems.YELLOW_WILLOW_CHEST_BOAT);
                         entries.add(TerrarianBlocks.BUDDING_LIFE_CRYSTAL);
                         entries.add(TerrarianBlocks.DEEPSLATE_BUDDING_LIFE_CRYSTAL);
                         entries.add(TerrarianBlocks.SMALL_LIFE_CRYSTAL_BUD);

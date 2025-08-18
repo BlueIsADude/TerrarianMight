@@ -1,21 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "equipment",
   "key": {
-    "L": {
-      "item": "minecraft:lantern"
-    },
-    "S": {
+    "#": {
       "item": "terrarianmight:life_shard"
     }
   },
   "pattern": [
-    " S ",
-    "SLS",
-    " S "
+    "##",
+    "##"
   ],
   "result": {
     "count": 1,
-    "id": "terrarianmight:heart_lantern"
+    "id": "terrarianmight:life_crystal"
   }
 }

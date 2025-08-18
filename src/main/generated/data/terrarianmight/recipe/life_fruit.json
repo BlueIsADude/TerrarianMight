@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "food",
+  "category": "misc",
   "ingredients": [
     {
       "item": "terrarianmight:life_crystal"
@@ -16,6 +16,7 @@
     }
   ],
   "result": {
+    "count": 1,
     "id": "terrarianmight:life_fruit"
   }
 }

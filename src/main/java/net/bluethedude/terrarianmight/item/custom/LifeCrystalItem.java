@@ -32,7 +32,7 @@ public class LifeCrystalItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("tooltip.terrarianmight.life_crystal.use").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("tooltip.terrarianmight.item.when_used").formatted(Formatting.GRAY));
         if (!TerrarianConfig.crystalPermanentHealth) {
             tooltip.add(Text.translatable("tooltip.terrarianmight.life_crystal.stats", TerrarianConfig.crystalHealthGain).formatted(Formatting.BLUE));
         } else {

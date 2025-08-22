@@ -3,15 +3,19 @@ package net.bluethedude.terrarianmight;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
 import net.bluethedude.terrarianmight.entity.TerrarianBoats;
+import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
+import net.bluethedude.terrarianmight.entity.custom.SlimeWolfEntity;
 import net.bluethedude.terrarianmight.item.TerrarianItemGroups;
 import net.bluethedude.terrarianmight.item.TerrarianItems;
 import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
 import net.bluethedude.terrarianmight.sound.TerrarianJukeboxSongs;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
-import net.bluethedude.terrarianmight.util.misc.TerrarianHealthManager;
+import net.bluethedude.terrarianmight.util.TerrarianDataComponents;
+import net.bluethedude.terrarianmight.util.TerrarianHealthManager;
 import net.bluethedude.terrarianmight.world.gen.TerrarianWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
@@ -32,6 +36,7 @@ public class TerrarianMight implements ModInitializer {
     public void onInitialize() {
         TerrarianItems.registerTerrarianItems();
         TerrarianBlocks.registerTerrarianBlocks();
+        TerrarianEntityTypes.registerTerrarianEntities();
         TerrarianBoats.registerTerrarianBoats();
 
         if (TerrarianConfig.creativeTab) {
@@ -44,6 +49,7 @@ public class TerrarianMight implements ModInitializer {
 
         TerrarianWorldGeneration.generateTerrarianWorldGen();
 
+        TerrarianDataComponents.registerDataComponentTypes();
         TerrarianHealthManager.registerHealthManager();
 
         StrippableBlockRegistry.register(TerrarianBlocks.YELLOW_WILLOW_LOG, TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG);
@@ -67,6 +73,8 @@ public class TerrarianMight implements ModInitializer {
         FlammableBlockRegistry.getDefaultInstance().add(TerrarianBlocks.YELLOW_WILLOW_SLAB, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(TerrarianBlocks.YELLOW_WILLOW_FENCE, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE, 5, 20);
+
+        FabricDefaultAttributeRegistry.register(TerrarianEntityTypes.SLIME_WOLF, SlimeWolfEntity.createSummonAttributes());
 
         TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
             factories.add((entity, random) -> new TradeOffer(

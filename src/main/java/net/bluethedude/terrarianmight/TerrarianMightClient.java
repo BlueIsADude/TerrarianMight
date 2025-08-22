@@ -4,11 +4,16 @@ import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
 import net.bluethedude.terrarianmight.block.TerrarianWoodType;
 import net.bluethedude.terrarianmight.entity.TerrarianBoats;
+import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
+import net.bluethedude.terrarianmight.entity.custom.render.SlimeWolfEntityModel;
+import net.bluethedude.terrarianmight.entity.custom.render.SlimeWolfEntityRenderer;
 import net.bluethedude.terrarianmight.particle.LifeHeartParticle;
 import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 
@@ -37,5 +42,8 @@ public class TerrarianMightClient implements ClientModInitializer {
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(TerrarianWoodType.YELLOW_WILLOW, TexturedRenderLayers.getSignTextureId(TerrarianWoodType.YELLOW_WILLOW));
 
         TerraformBoatClientHelper.registerModelLayers(TerrarianBoats.YELLOW_WILLOW_BOAT_ID, false);
+
+        EntityModelLayerRegistry.registerModelLayer(SlimeWolfEntityModel.SLIME_WOLF, SlimeWolfEntityModel::getTexturedModelData);
+        EntityRendererRegistry.register(TerrarianEntityTypes.SLIME_WOLF, SlimeWolfEntityRenderer::new);
     }
 }

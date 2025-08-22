@@ -36,10 +36,7 @@
     "sounds": [
       "terrarianmight:block/heart_lantern/repair1",
       "terrarianmight:block/heart_lantern/repair2",
-      "terrarianmight:block/heart_lantern/repair3",
-      "terrarianmight:block/heart_lantern/repair4",
-      "terrarianmight:block/heart_lantern/repair5",
-      "terrarianmight:block/heart_lantern/repair6"
+      "terrarianmight:block/heart_lantern/repair3"
     ]
   },
   "music_disc.heartfelt": {

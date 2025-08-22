@@ -1,4 +1,4 @@
-package net.bluethedude.terrarianmight.util.misc;
+package net.bluethedude.terrarianmight.util;
 
 import net.bluethedude.terrarianmight.TerrarianConfig;
 import net.bluethedude.terrarianmight.TerrarianMight;

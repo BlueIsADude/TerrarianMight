@@ -6,8 +6,10 @@ import net.bluethedude.terrarianmight.block.TerrarianBlocks;
 import net.bluethedude.terrarianmight.entity.TerrarianBoats;
 import net.bluethedude.terrarianmight.item.custom.LifeCrystalItem;
 import net.bluethedude.terrarianmight.item.custom.LifeFruitItem;
+import net.bluethedude.terrarianmight.item.custom.SlimeStaffItem;
 import net.bluethedude.terrarianmight.sound.TerrarianJukeboxSongs;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -29,6 +31,15 @@ public class TerrarianItems {
                     .food(TerrarianFoodComponents.LIFE_FRUIT)
             )
     );
+    public static final Item SLIME_STAFF = registerItem("slime_staff",
+            new SlimeStaffItem(new Item.Settings()
+                    .maxCount(1)
+                    .rarity(Rarity.RARE)
+                    .attributeModifiers(SlimeStaffItem.createAttributeModifiers())
+                    .component(DataComponentTypes.TOOL, SlimeStaffItem.createToolComponent())
+            )
+    );
+
     public static final Item MUSIC_DISC_HEARTFELT = registerItem("music_disc_heartfelt",
             new Item(new Item.Settings()
                     .maxCount(1)

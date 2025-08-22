@@ -67,6 +67,9 @@
   "item.terrarianmight.yellow_willow_chest_boat": "Yellow Willow Chest Boat",
 
 
+  "item.terrarianmight.slime_staff": "Slime Staff",
+
+
   "item.terrarianmight.music_disc_heartfelt": "Music Disc",
   "jukebox_song.terrarianmight.heartfelt": "BlueTheDude - Heartfelt",
 
@@ -106,6 +109,9 @@
   "block.terrarianmight.yellow_willow_hanging_sign": "Yellow Willow Hanging Sign",
 
 
+  "entity.terrarianmight.slime_wolf": "Slime Wolf",
+
+
   "subtitle.terrarianmight.life_crystal.use": "Life Crystal breaks",
 
   "subtitle.terrarianmight.heart_lantern.crack1": "Heart Lantern cracks",
@@ -114,11 +120,17 @@
   "subtitle.terrarianmight.heart_lantern.repair": "Heart Lantern is repaired",
 
 
-  "tooltip.terrarianmight.life_crystal.use": "When Used:",
+  "tooltip.terrarianmight.item.when_used": "When Used:",
+
   "tooltip.terrarianmight.life_crystal.stats": "+%s Health Until Death",
   "tooltip.terrarianmight.life_crystal.stats_permanent": "+%s Health",
 
   "tooltip.terrarianmight.life_fruit.disallowed": "Inedible Until at Max Health",
+
+  "tooltip.terrarianmight.summon_item.slime_staff": "Summons Slime Wolf",
+
+  "tooltip.terrarianmight.magic_item.mana": "Mana: %s / %s",
+  "tooltip.terrarianmight.magic_item.mana_cost": "-%s Mana",
 
 
   "alert.terrarianmight.life_crystal_limit": "You have already reached max health!",

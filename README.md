@@ -19,8 +19,11 @@ Life Fruit is a new food item, crafted with Life Shards and Glow Berries. While 
 Surrounding a Lantern with 4 Life Shards will net you a **Heart Lantern**! This lovely red light source will provide a bit of regen when interacted with, but will then proceed to crack, reducing the amount of light it gives off. The Heart Lantern's regen abilities can be used a total of 3 times, before eventually becoming a Broken Heart Lantern. Broken Heart Lanterns do not give off light, and do not offer any sort of regen. You can repair your damaged Heart Lanterns using Life Shards.
 
 ## Yellow Willow Trees
-Spawning rarely in forests and plains, these Yellow Willow trees offer not only new yellow leaves and vines, but also a new Yellow Willow wood set!
+Spawning rarely in forests and plains, these Yellow Willow trees offer not only new yellow leaves and vines, but also a new Yellow Willow wood set! If you're having trouble finding them however, you can also get them from the Wandering Trader!
 </details>
+
+## Known Issues
+- If Amendments is installed, Heart Lanterns can't be used when placed on walls.
 
 ## Planned Features
 These are all the currently planned mod features! Note that nothing here is concrete, and I am only one dev, so it may take a while for these to be implemented!

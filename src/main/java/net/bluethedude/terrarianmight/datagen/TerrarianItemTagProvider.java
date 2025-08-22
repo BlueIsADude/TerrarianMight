@@ -6,6 +6,7 @@ import net.bluethedude.terrarianmight.util.TerrarianTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
+import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -73,6 +74,12 @@ public class TerrarianItemTagProvider extends FabricTagProvider.ItemTagProvider 
 
         getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
                 .add(TerrarianItems.YELLOW_WILLOW_HANGING_SIGN_ITEM);
+
+        getOrCreateTagBuilder(ConventionalItemTags.TOOLS)
+                .add(TerrarianItems.SLIME_STAFF);
+
+        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
+                .add(TerrarianItems.SLIME_STAFF);
 
         getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS)
                 .add(TerrarianItems.MUSIC_DISC_HEARTFELT);

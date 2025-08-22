@@ -67,6 +67,8 @@ public class TerrarianModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TerrarianItems.LIFE_CRYSTAL, Models.GENERATED);
         itemModelGenerator.register(TerrarianItems.LIFE_FRUIT, Models.GENERATED);
 
+        itemModelGenerator.register(TerrarianItems.SLIME_STAFF, Models.HANDHELD);
+
         itemModelGenerator.register(TerrarianItems.MUSIC_DISC_HEARTFELT, Models.GENERATED);
     }
 }

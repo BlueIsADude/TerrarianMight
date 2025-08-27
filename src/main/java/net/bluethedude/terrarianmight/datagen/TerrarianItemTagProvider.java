@@ -87,8 +87,8 @@ public class TerrarianItemTagProvider extends FabricTagProvider.ItemTagProvider 
         getOrCreateTagBuilder(TerrarianTags.Items.MAGIC_ENCHANTABLE)
                 .addTag(TerrarianTags.Items.MAGIC_WEAPONS);
 
-        getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS)
-                .add(TerrarianItems.MUSIC_DISC_HEARTFELT);
+//        getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS)
+//                .add(TerrarianItems.MUSIC_DISC_HEARTFELT);
 
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
                 .add(TerrarianItems.LIFE_SHARD);

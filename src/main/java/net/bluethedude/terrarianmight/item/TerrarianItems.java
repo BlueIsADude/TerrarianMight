@@ -71,13 +71,13 @@ public class TerrarianItems {
             )
     );
 
-    public static final Item MUSIC_DISC_HEARTFELT = registerItem("music_disc_heartfelt",
-            new Item(new Item.Settings()
-                    .maxCount(1)
-                    .rarity(Rarity.RARE)
-                    .jukeboxPlayable(TerrarianJukeboxSongs.HEARTFELT)
-            )
-    );
+//    public static final Item MUSIC_DISC_HEARTFELT = registerItem("music_disc_heartfelt",
+//            new Item(new Item.Settings()
+//                    .maxCount(1)
+//                    .rarity(Rarity.RARE)
+//                    .jukeboxPlayable(TerrarianJukeboxSongs.HEARTFELT)
+//            )
+//    );
 
     public static final Item YELLOW_WILLOW_SIGN_ITEM = registerItem("yellow_willow_sign",
             new SignItem(new Item.Settings(), TerrarianBlocks.YELLOW_WILLOW_SIGN, TerrarianBlocks.YELLOW_WILLOW_WALL_SIGN));
@@ -105,8 +105,8 @@ public class TerrarianItems {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries ->
                 entries.addBefore(Items.BAMBOO_SIGN, YELLOW_WILLOW_SIGN_ITEM, YELLOW_WILLOW_HANGING_SIGN_ITEM));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries ->
-                entries.add(MUSIC_DISC_HEARTFELT));
+//        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries ->
+//                entries.add(MUSIC_DISC_HEARTFELT));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries ->
                 entries.addAfter(Items.AMETHYST_SHARD, LIFE_SHARD));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {

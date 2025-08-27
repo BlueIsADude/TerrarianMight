@@ -76,13 +76,5 @@
     "sounds": [
       "terrarianmight:entity/twins/bite"
     ]
-  },
-  "music_disc.heartfelt": {
-    "sounds": [
-      {
-        "name": "terrarianmight:music/jukebox/heartfelt",
-        "stream": true
-      }
-    ]
   }
 }

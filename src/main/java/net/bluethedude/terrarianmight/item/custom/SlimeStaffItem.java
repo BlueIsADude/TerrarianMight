@@ -1,6 +1,5 @@
 package net.bluethedude.terrarianmight.item.custom;
 
-import net.bluethedude.terrarianmight.enchantments.TerrarianEnchantments;
 import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
 import net.bluethedude.terrarianmight.entity.custom.SlimeWolfEntity;
 import net.bluethedude.terrarianmight.item.custom.util.AbstractSummonItem;

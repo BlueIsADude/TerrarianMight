@@ -29,6 +29,11 @@ public class TerrarianConfig extends MidnightConfig {
         TRUE, INVERTED, FALSE
     }
 
+    @Comment(category = TERRARIAN_MIGHT, centered = true) public static Comment magic;
+    @Entry(category = TERRARIAN_MIGHT) public static boolean passiveManaGain = true;
+    @Condition(requiredOption = "passiveManaGain", requiredValue = "true")
+    @Entry(category = TERRARIAN_MIGHT) public static int manaGainTimer = 60;
+
     @Comment(category = TERRARIAN_MIGHT, centered = true) public static Comment miscOptions;
     @Entry(category = TERRARIAN_MIGHT) public static boolean creativeTab = true;
     @Entry(category = TERRARIAN_MIGHT, min = 0) public static int baseHealth = 20;

@@ -53,7 +53,7 @@ public class TerrarianItemGroups {
                         entries.add(TerrarianItems.ZEPHYR_SCEPTER);
                         entries.add(TerrarianItems.SLIME_STAFF);
                         entries.add(TerrarianItems.OPTIC_STAFF);
-                        entries.add(TerrarianItems.MUSIC_DISC_HEARTFELT);
+//                        entries.add(TerrarianItems.MUSIC_DISC_HEARTFELT);
                     }).build());
 
     public static void registerItemGroups() {}

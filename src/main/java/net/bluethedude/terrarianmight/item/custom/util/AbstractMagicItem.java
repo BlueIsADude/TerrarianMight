@@ -1,7 +1,9 @@
 package net.bluethedude.terrarianmight.item.custom.util;
 
+import net.bluethedude.terrarianmight.TerrarianConfig;
 import net.bluethedude.terrarianmight.util.TerrarianDataComponents;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -23,6 +25,9 @@ public abstract class AbstractMagicItem extends Item {
 
     private static final int ITEM_BAR_COLOR = MathHelper.packRgb(0.4F, 0.4F, 1.0F);
 
+    private int ticksHeld;
+    private boolean isBeingUsed;
+
     public AbstractMagicItem(Item.Settings settings) {
         super(settings);
     }
@@ -32,7 +37,7 @@ public abstract class AbstractMagicItem extends Item {
     }
 
     public int getMaxMana(ItemStack stack) {
-        return 1;
+        return 12;
     }
 
     @Override
@@ -90,6 +95,27 @@ public abstract class AbstractMagicItem extends Item {
             setMana(stack, getMana(stack) + 1);
         }
         return super.postHit(stack, target, attacker);
+    }
+
+    @Override
+    public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
+        if (!world.isClient && user instanceof PlayerEntity && TerrarianConfig.passiveManaGain) {
+            isBeingUsed = true;
+        }
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (!world.isClient && entity instanceof PlayerEntity && TerrarianConfig.passiveManaGain) {
+            this.ticksHeld++;
+            if ((getMana(stack) < getMaxMana(stack) && selected && this.ticksHeld % TerrarianConfig.manaGainTimer == 0)) {
+                if (!isBeingUsed) {
+                    setMana(stack, getMana(stack) + 1);
+                } else {
+                    isBeingUsed = false;
+                }
+            }
+        }
     }
 
     @Override

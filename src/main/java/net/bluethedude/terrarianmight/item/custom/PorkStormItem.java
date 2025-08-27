@@ -1,6 +1,5 @@
 package net.bluethedude.terrarianmight.item.custom;
 
-import net.bluethedude.terrarianmight.enchantments.TerrarianEnchantments;
 import net.bluethedude.terrarianmight.entity.custom.PorkChopEntity;
 import net.bluethedude.terrarianmight.item.custom.util.AbstractMagicItem;
 import net.minecraft.component.type.AttributeModifierSlot;

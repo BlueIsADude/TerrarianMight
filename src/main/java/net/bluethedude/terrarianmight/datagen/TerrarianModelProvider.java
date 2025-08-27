@@ -73,6 +73,6 @@ public class TerrarianModelProvider extends FabricModelProvider {
         itemModelGenerator.register(TerrarianItems.SLIME_STAFF, Models.HANDHELD);
         itemModelGenerator.register(TerrarianItems.OPTIC_STAFF, Models.HANDHELD);
 
-        itemModelGenerator.register(TerrarianItems.MUSIC_DISC_HEARTFELT, Models.GENERATED);
+//        itemModelGenerator.register(TerrarianItems.MUSIC_DISC_HEARTFELT, Models.GENERATED);
     }
 }

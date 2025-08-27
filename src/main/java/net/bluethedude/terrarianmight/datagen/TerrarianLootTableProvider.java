@@ -32,20 +32,20 @@ public class TerrarianLootTableProvider extends FabricBlockLootTableProvider {
                 block -> this.dropsWithSilkTouch(block, ItemEntry.builder(TerrarianItems.LIFE_SHARD)
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F)))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ItemTags.CLUSTER_MAX_HARVESTABLES)))
-                        .alternatively(
-                                ItemEntry.builder(TerrarianItems.MUSIC_DISC_HEARTFELT)
-                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.025F, 0.05F, 0.1F, 0.25F))
-                        )
+//                        .alternatively(
+//                                ItemEntry.builder(TerrarianItems.MUSIC_DISC_HEARTFELT)
+//                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.025F, 0.05F, 0.1F, 0.25F))
+//                        )
                 )
         );
         addDrop(TerrarianBlocks.DEEPSLATE_BUDDING_LIFE_CRYSTAL,
                 block -> this.dropsWithSilkTouch(block, ItemEntry.builder(TerrarianItems.LIFE_SHARD)
                         .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F)))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().tag(ItemTags.CLUSTER_MAX_HARVESTABLES)))
-                        .alternatively(
-                                ItemEntry.builder(TerrarianItems.MUSIC_DISC_HEARTFELT)
-                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.025F, 0.05F, 0.1F, 0.25F))
-                        )
+//                        .alternatively(
+//                                ItemEntry.builder(TerrarianItems.MUSIC_DISC_HEARTFELT)
+//                                        .conditionally(TableBonusLootCondition.builder(impl.getOrThrow(Enchantments.FORTUNE), 0.025F, 0.05F, 0.1F, 0.25F))
+//                        )
                 )
         );
 

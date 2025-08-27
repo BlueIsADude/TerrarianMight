@@ -5,6 +5,7 @@
   "terrarianmight.midnightconfig.buddingLifeCrystals": "Budding Life Crystals",
   "terrarianmight.midnightconfig.lifeFruit": "Life Fruit",
   "terrarianmight.midnightconfig.heartLanterns": "Heart Lanterns",
+  "terrarianmight.midnightconfig.magic": "Mana, Magic, and Summons",
   "terrarianmight.midnightconfig.miscOptions": "Miscellaneous Options",
 
   "terrarianmight.midnightconfig.creativeTab": "Enable Creative Tab",
@@ -22,6 +23,8 @@
   "terrarianmight.midnightconfig.lanternDuration": "Heart Lantern Duration",
   "terrarianmight.midnightconfig.lanternAmplifier": "Heart Lantern Amplifier",
   "terrarianmight.midnightconfig.lanternScales": "Scaling Lantern Amplifier",
+  "terrarianmight.midnightconfig.passiveManaGain": "Passive Mana Gain",
+  "terrarianmight.midnightconfig.manaGainTimer": "Mana Gain Timer",
 
   "terrarianmight.midnightconfig.crystalPermanentHealth.label.tooltip": "Whether or not health gained from Life Crystals is permanent.",
   "terrarianmight.midnightconfig.crystalPermanentHealth.tooltip": "NOTE: This option requires a world/server restart to be applied",
@@ -39,6 +42,8 @@
   "terrarianmight.midnightconfig.lanternDuration.label.tooltip": "The amount of time the Regeneration effect gained from Heart Lanterns lasts for.",
   "terrarianmight.midnightconfig.lanternAmplifier.label.tooltip": "The amplifier of the Regeneration effect gained from Heart Lanterns.",
   "terrarianmight.midnightconfig.lanternScales.label.tooltip": "Whether or not the level of the Heart Lantern's amplifier increases (by 1) depending on its damaged state.",
+  "terrarianmight.midnightconfig.passiveManaGain.label.tooltip": "Whether or not magic weapons passively regain mana when held.",
+  "terrarianmight.midnightconfig.manaGainTimer.label.tooltip": "The amount of time it takes for magic weapons to regain mana, if enabled.",
   "terrarianmight.midnightconfig.creativeTab.label.tooltip": "Whether a designated creative mode tab for the mod's content is added or not.",
   "terrarianmight.midnightconfig.creativeTab.tooltip": "NOTE: This option requires a full game relaunch to be applied",
   "terrarianmight.midnightconfig.baseHealth.label.tooltip": "The amount of health that the player starts off with. Due to its janky nature, this option may be removed in the future.",

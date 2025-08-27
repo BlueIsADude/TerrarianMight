@@ -24,7 +24,7 @@ public class TerrarianSoundEvents {
     public static final SoundEvent ENTITY_TWINS_LASER_FIRE = registerSoundEvent("entity.twins.laser_fire");
     public static final SoundEvent ENTITY_TWINS_BITE = registerSoundEvent("entity.twins.bite");
 
-    public static final SoundEvent MUSIC_DISC_HEARTFELT = registerSoundEvent("music_disc.heartfelt");
+//    public static final SoundEvent MUSIC_DISC_HEARTFELT = registerSoundEvent("music_disc.heartfelt");
 
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = Identifier.of(TerrarianMight.MOD_ID, name);

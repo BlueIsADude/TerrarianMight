@@ -1,5 +1,6 @@
 package net.bluethedude.terrarianmight.entity.custom.util;
 
+import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -14,6 +15,7 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
@@ -22,11 +24,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
-public class AbstractSummonEntity extends TameableEntity implements Angerable {
+public abstract class AbstractSummonEntity extends TameableEntity implements Angerable {
 
     private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(AbstractSummonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-    private static final int MAX_LIFETIME = 600;
     private int ticksSinceSpawn;
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
     @Nullable
@@ -35,6 +36,10 @@ public class AbstractSummonEntity extends TameableEntity implements Angerable {
     protected AbstractSummonEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
         this.setTamed(false, false);
+    }
+
+    public int getMaxLifetime() {
+        return 1;
     }
 
     @Override
@@ -74,14 +79,31 @@ public class AbstractSummonEntity extends TameableEntity implements Angerable {
         if (!this.getWorld().isClient) {
             this.tickAngerLogic((ServerWorld)this.getWorld(), true);
         }
+        if (!this.getWorld().isClient && this.isAlive() && this.age % 10 == 0) {
+            this.heal(1.0F);
+        }
     }
 
     @Override
     protected void mobTick() {
-        this.ticksSinceSpawn++;
-        if (this.ticksSinceSpawn % MAX_LIFETIME == 0) {
-            this.damage(this.getDamageSources().generic(), this.getHealth());
+        if (this.isTamed()) {
+            this.ticksSinceSpawn++;
+            if (this.ticksSinceSpawn % getMaxLifetime() == 0 || this.getOwner() != null && this.getOwner().isDead()) {
+                this.vanish();
+            }
         }
+    }
+
+    protected void vanish() {
+        World world = this.getWorld();
+        this.playSound(TerrarianSoundEvents.ITEM_MAGIC_ITEM_SPELL_VANISH, 1.0F, 1.0F);
+        ((ServerWorld) world).spawnParticles(ParticleTypes.PORTAL,
+                this.getX(),
+                this.getY(),
+                this.getZ(),
+                10, 0.3, 0.3, 0.3, 0.1
+        );
+        this.discard();
     }
 
     @Override

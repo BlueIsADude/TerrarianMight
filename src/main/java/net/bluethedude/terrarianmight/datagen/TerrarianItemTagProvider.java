@@ -6,7 +6,6 @@ import net.bluethedude.terrarianmight.util.TerrarianTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
-import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 
@@ -75,14 +74,24 @@ public class TerrarianItemTagProvider extends FabricTagProvider.ItemTagProvider 
         getOrCreateTagBuilder(ItemTags.HANGING_SIGNS)
                 .add(TerrarianItems.YELLOW_WILLOW_HANGING_SIGN_ITEM);
 
-        getOrCreateTagBuilder(ConventionalItemTags.TOOLS)
-                .add(TerrarianItems.SLIME_STAFF);
+        getOrCreateTagBuilder(TerrarianTags.Items.MAGIC_WEAPONS)
+                .add(TerrarianItems.AMETHYST_STAFF)
+                .add(TerrarianItems.PORK_STORM)
+                .add(TerrarianItems.ZEPHYR_SCEPTER)
+                .add(TerrarianItems.SLIME_STAFF)
+                .add(TerrarianItems.OPTIC_STAFF);
 
-        getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE)
-                .add(TerrarianItems.SLIME_STAFF);
+        getOrCreateTagBuilder(ConventionalItemTags.TOOLS)
+                .addTag(TerrarianTags.Items.MAGIC_WEAPONS);
+
+        getOrCreateTagBuilder(TerrarianTags.Items.MAGIC_ENCHANTABLE)
+                .addTag(TerrarianTags.Items.MAGIC_WEAPONS);
 
         getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS)
                 .add(TerrarianItems.MUSIC_DISC_HEARTFELT);
+
+        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+                .add(TerrarianItems.LIFE_SHARD);
 
         getOrCreateTagBuilder(TerrarianTags.Items.BUDDING_LIFE_CRYSTALS)
                 .add(TerrarianBlocks.BUDDING_LIFE_CRYSTAL.asItem())

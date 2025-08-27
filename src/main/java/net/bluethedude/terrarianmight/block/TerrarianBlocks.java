@@ -377,13 +377,12 @@ public class TerrarianBlocks {
             );
         });
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
-            entries.addAfter(Blocks.SOUL_LANTERN,
-                    HEART_LANTERN,
-                    CHIPPED_HEART_LANTERN,
-                    DAMAGED_HEART_LANTERN,
-                    BROKEN_HEART_LANTERN
-            );
-        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries ->
+                entries.addAfter(Blocks.SOUL_LANTERN,
+                HEART_LANTERN,
+                CHIPPED_HEART_LANTERN,
+                DAMAGED_HEART_LANTERN,
+                BROKEN_HEART_LANTERN
+        ));
     }
 }

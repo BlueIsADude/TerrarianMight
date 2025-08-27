@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 2,
+  "description": {
+    "translate": "enchantment.terrarianmight.mana_capacity"
+  },
+  "exclusive_set": "#terrarianmight:exclusive_set/magic_exclusive_set",
+  "max_cost": {
+    "base": 25,
+    "per_level_above_first": 9
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 7
+  },
+  "slots": [
+    "hand"
+  ],
+  "supported_items": "#terrarianmight:magic_enchantable",
+  "weight": 5
+}

@@ -68,7 +68,7 @@ public class LifeCrystalItem extends Item {
                     user.getX(),
                     user.getY() + 0.75,
                     user.getZ(),
-                    10, 0.3, 0.3, 0.3, 0.1
+                    10, 0.3, 0.3, 0.3, 0
             );
             int increment = Math.min(TerrarianConfig.crystalHealthGain, TerrarianConfig.crystalMaxHealth + 20 - maxHealth);
             maxHealth += increment;

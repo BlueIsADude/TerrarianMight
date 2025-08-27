@@ -50,5 +50,13 @@ public class TerrarianRecipeProvider extends FabricRecipeProvider {
                 .pattern(" X ")
                 .criterion("has_life_shard", conditionsFromItem(TerrarianItems.LIFE_SHARD))
                 .offerTo(exporter);
+        ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, TerrarianItems.AMETHYST_STAFF)
+                .input('#', Items.AMETHYST_SHARD)
+                .input('X', Items.COPPER_INGOT)
+                .pattern(" ##")
+                .pattern(" X#")
+                .pattern("X  ")
+                .criterion("has_amethyst_shard", conditionsFromItem(Items.AMETHYST_SHARD))
+                .offerTo(exporter);
     }
 }

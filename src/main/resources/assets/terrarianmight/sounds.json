@@ -13,6 +13,20 @@
       "terrarianmight:item/life_fruit/finish"
     ]
   },
+  "item.magic_item.cast_spell": {
+    "subtitle": "subtitle.terrarianmight.magic_item.cast_spell",
+    "sounds": [
+      "minecraft:mob/evocation_illager/cast1",
+      "minecraft:mob/evocation_illager/cast2"
+    ]
+  },
+  "item.magic_item.spell_vanish": {
+    "subtitle": "subtitle.terrarianmight.magic_item.spell_vanish",
+    "sounds": [
+      "minecraft:mob/endermen/portal",
+      "minecraft:mob/endermen/portal2"
+    ]
+  },
   "block.heart_lantern.crack1": {
     "subtitle": "subtitle.terrarianmight.heart_lantern.crack1",
     "sounds": [
@@ -37,6 +51,30 @@
       "terrarianmight:block/heart_lantern/repair1",
       "terrarianmight:block/heart_lantern/repair2",
       "terrarianmight:block/heart_lantern/repair3"
+    ]
+  },
+  "entity.twins.hurt": {
+    "subtitle": "subtitle.terrarianmight.twins.hurt",
+    "sounds": [
+      "terrarianmight:entity/twins/hurt"
+    ]
+  },
+  "entity.twins.death": {
+    "subtitle": "subtitle.terrarianmight.twins.death",
+    "sounds": [
+      "terrarianmight:entity/twins/death"
+    ]
+  },
+  "entity.twins.laser_fire": {
+    "subtitle": "subtitle.terrarianmight.twins.laser_fire",
+    "sounds": [
+      "terrarianmight:entity/twins/laser_fire"
+    ]
+  },
+  "entity.twins.bite": {
+    "subtitle": "subtitle.terrarianmight.twins.bite",
+    "sounds": [
+      "terrarianmight:entity/twins/bite"
     ]
   },
   "music_disc.heartfelt": {

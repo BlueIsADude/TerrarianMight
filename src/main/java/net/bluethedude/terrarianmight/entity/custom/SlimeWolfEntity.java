@@ -1,7 +1,7 @@
 package net.bluethedude.terrarianmight.entity.custom;
 
 import net.bluethedude.terrarianmight.entity.custom.util.AbstractSummonEntity;
-import net.minecraft.block.BlockState;
+import net.bluethedude.terrarianmight.item.custom.SlimeStaffItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
@@ -11,14 +11,15 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class SlimeWolfEntity extends AbstractSummonEntity {
-
     public SlimeWolfEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
         this.setTamed(false, false);
@@ -33,7 +34,6 @@ public class SlimeWolfEntity extends AbstractSummonEntity {
         this.goalSelector.add(4, new PounceAtTargetGoal(this, 0.4F));
         this.goalSelector.add(5, new MeleeAttackGoal(this, 1.0, true));
         this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0, 10.0F, 2.0F));
-        this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(10, new LookAroundGoal(this));
 
@@ -52,8 +52,27 @@ public class SlimeWolfEntity extends AbstractSummonEntity {
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(SoundEvents.ENTITY_SLIME_SQUISH_SMALL, 0.15F, 1.0F);
+    public int getMaxLifetime() {
+        return SlimeStaffItem.SUMMON_LIFESPAN;
+    }
+
+    protected ParticleEffect getParticles() {
+        return ParticleTypes.ITEM_SLIME;
+    }
+
+    @Override
+    public void onDamaged(DamageSource damageSource) {
+        float f = this.getDimensions(this.getPose()).width() * 2.0F;
+        float g = f / 2.0F;
+
+        for (int i = 0; i < f * 16.0F; i++) {
+            float h = this.random.nextFloat() * (float) (Math.PI * 2);
+            float j = this.random.nextFloat() * 0.5F + 0.5F;
+            float k = MathHelper.sin(h) * g * j;
+            float l = MathHelper.cos(h) * g * j;
+            this.getWorld().addParticle(this.getParticles(), this.getX() + k, this.getEyeY(), this.getZ() + l, 0.0, 0.0, 0.0);
+        }
+        super.onDamaged(damageSource);
     }
 
     @Override

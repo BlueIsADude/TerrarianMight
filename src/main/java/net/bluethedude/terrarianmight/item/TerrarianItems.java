@@ -4,9 +4,7 @@ import com.terraformersmc.terraform.boat.api.item.TerraformBoatItemHelper;
 import net.bluethedude.terrarianmight.TerrarianMight;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
 import net.bluethedude.terrarianmight.entity.TerrarianBoats;
-import net.bluethedude.terrarianmight.item.custom.LifeCrystalItem;
-import net.bluethedude.terrarianmight.item.custom.LifeFruitItem;
-import net.bluethedude.terrarianmight.item.custom.SlimeStaffItem;
+import net.bluethedude.terrarianmight.item.custom.*;
 import net.bluethedude.terrarianmight.sound.TerrarianJukeboxSongs;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.DataComponentTypes;
@@ -31,12 +29,45 @@ public class TerrarianItems {
                     .food(TerrarianFoodComponents.LIFE_FRUIT)
             )
     );
+
+    public static final Item AMETHYST_STAFF = registerItem("amethyst_staff",
+            new AmethystStaffItem(new Item.Settings()
+                    .maxCount(1)
+                    .rarity(Rarity.RARE)
+                    .attributeModifiers(AmethystStaffItem.createAttributeModifiers())
+                    .component(DataComponentTypes.TOOL, AmethystStaffItem.createToolComponent())
+            )
+    );
+    public static final Item ZEPHYR_SCEPTER = registerItem("zephyr_scepter",
+            new ZephyrScepterItem(new Item.Settings()
+                    .maxCount(1)
+                    .rarity(Rarity.EPIC)
+                    .attributeModifiers(ZephyrScepterItem.createAttributeModifiers())
+                    .component(DataComponentTypes.TOOL, ZephyrScepterItem.createToolComponent())
+            )
+    );
+    public static final Item PORK_STORM = registerItem("pork_storm",
+            new PorkStormItem(new Item.Settings()
+                    .maxCount(1)
+                    .rarity(Rarity.EPIC)
+                    .attributeModifiers(PorkStormItem.createAttributeModifiers())
+                    .component(DataComponentTypes.TOOL, PorkStormItem.createToolComponent())
+            )
+    );
     public static final Item SLIME_STAFF = registerItem("slime_staff",
             new SlimeStaffItem(new Item.Settings()
                     .maxCount(1)
                     .rarity(Rarity.RARE)
                     .attributeModifiers(SlimeStaffItem.createAttributeModifiers())
                     .component(DataComponentTypes.TOOL, SlimeStaffItem.createToolComponent())
+            )
+    );
+    public static final Item OPTIC_STAFF = registerItem("optic_staff",
+            new OpticStaffItem(new Item.Settings()
+                    .maxCount(1)
+                    .rarity(Rarity.EPIC)
+                    .attributeModifiers(OpticStaffItem.createAttributeModifiers())
+                    .component(DataComponentTypes.TOOL, OpticStaffItem.createToolComponent())
             )
     );
 
@@ -78,8 +109,15 @@ public class TerrarianItems {
                 entries.add(MUSIC_DISC_HEARTFELT));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries ->
                 entries.addAfter(Items.AMETHYST_SHARD, LIFE_SHARD));
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries ->
-                entries.addAfter(Items.TOTEM_OF_UNDYING, LIFE_CRYSTAL));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
+                entries.addAfter(Items.MACE,
+                        AMETHYST_STAFF,
+                        ZEPHYR_SCEPTER,
+                        SLIME_STAFF,
+                        OPTIC_STAFF
+                );
+                entries.addAfter(Items.TOTEM_OF_UNDYING, LIFE_CRYSTAL);
+        });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
                 entries.addAfter(Items.GLOW_BERRIES, LIFE_FRUIT));
     }

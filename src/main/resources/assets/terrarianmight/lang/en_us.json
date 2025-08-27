@@ -56,6 +56,9 @@
   "tag.item.terrarianmight.heart_lanterns": "Heart Lanterns",
   "tag.item.terrarianmight.budding_life_crystals": "Budding Life Crystals",
 
+  "tag.item.terrarianmight.magic_weapons": "Magic Weapons",
+  "tag.item.terrarianmight.magic_enchantable": "Enchantable Magic Weapons",
+
 
   "item.terrarianmight.life_shard": "Life Shard",
 
@@ -67,7 +70,11 @@
   "item.terrarianmight.yellow_willow_chest_boat": "Yellow Willow Chest Boat",
 
 
+  "item.terrarianmight.amethyst_staff": "Amethyst Staff",
+  "item.terrarianmight.pork_storm": "Pork Storm",
+  "item.terrarianmight.zephyr_scepter": "Zephyr Scepter",
   "item.terrarianmight.slime_staff": "Slime Staff",
+  "item.terrarianmight.optic_staff": "Optic Staff",
 
 
   "item.terrarianmight.music_disc_heartfelt": "Music Disc",
@@ -109,15 +116,40 @@
   "block.terrarianmight.yellow_willow_hanging_sign": "Yellow Willow Hanging Sign",
 
 
+  "enchantment.terrarianmight.mana_capacity": "Mana Capacity",
+  "enchantment.terrarianmight.arcane_": "Mana Capacity",
+
+
+  "entity.terrarianmight.magic_bolt": "Magic Bolt",
+  "entity.terrarianmight.end_laser": "End Laser",
+
   "entity.terrarianmight.slime_wolf": "Slime Wolf",
+  "entity.terrarianmight.retinazer": "Retinazer",
+  "entity.terrarianmight.spazmatism": "Spazmatism",
+
+
+  "trim_material.terrarianmight.life_shard": "Life Shard Material",
 
 
   "subtitle.terrarianmight.life_crystal.use": "Life Crystal breaks",
+
+  "subtitle.terrarianmight.magic_item.cast_spell": "Spell is cast",
+  "subtitle.terrarianmight.magic_item.cast_spell_pork": "Spell is porked",
+  "subtitle.terrarianmight.magic_item.spell_vanish": "Spell dissipates",
 
   "subtitle.terrarianmight.heart_lantern.crack1": "Heart Lantern cracks",
   "subtitle.terrarianmight.heart_lantern.crack2": "Heart Lantern fractures",
   "subtitle.terrarianmight.heart_lantern.crack3": "Heart Lantern shatters",
   "subtitle.terrarianmight.heart_lantern.repair": "Heart Lantern is repaired",
+
+  "subtitle.terrarianmight.twins.hurt": "Twin Ender Eye hurts",
+  "subtitle.terrarianmight.twins.death": "Twin Ender Eye dies",
+  "subtitle.terrarianmight.twins.laser_fire": "Laser fires",
+  "subtitle.terrarianmight.twins.bite": "Twin Ender Eye bites",
+
+
+  "death.attack.laser": "%1$s was disintegrated",
+  "death.attack.laser.player": "%1$s was disintegrated by %2$s",
 
 
   "tooltip.terrarianmight.item.when_used": "When Used:",
@@ -127,12 +159,20 @@
 
   "tooltip.terrarianmight.life_fruit.disallowed": "Inedible Until at Max Health",
 
-  "tooltip.terrarianmight.summon_item.slime_staff": "Summons Slime Wolf",
+  "tooltip.terrarianmight.magic.mana": "Mana: %s / %s",
+  "tooltip.terrarianmight.magic.mana_cost": "-%s Mana",
 
-  "tooltip.terrarianmight.magic_item.mana": "Mana: %s / %s",
-  "tooltip.terrarianmight.magic_item.mana_cost": "-%s Mana",
+  "tooltip.terrarianmight.magic_item.amethyst_staff": "Fires an Amethyst Bolt",
+  "tooltip.terrarianmight.magic_item.zephyr_scepter": "Fires 3 Wind Charges",
+
+  "tooltip.terrarianmight.summon_item.slime_staff": "Summons a Slime Wolf",
+  "tooltip.terrarianmight.summon_item.optic_staff": "Summons Twin Ender Eyes",
 
 
   "alert.terrarianmight.life_crystal_limit": "You have already reached max health!",
-  "alert.terrarianmight.life_fruit_disallowed": "You haven't reached max health yet!"
+  "alert.terrarianmight.life_fruit_disallowed": "You haven't reached max health yet!",
+
+
+
+  "resourcePack.terrarianmight.twin_mech_eyes.name": "Twin Mech Eyes"
 }

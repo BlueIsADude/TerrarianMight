@@ -4,7 +4,9 @@ import eu.midnightdust.lib.config.MidnightConfig;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
 import net.bluethedude.terrarianmight.entity.TerrarianBoats;
 import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
+import net.bluethedude.terrarianmight.entity.custom.RetinazerEntity;
 import net.bluethedude.terrarianmight.entity.custom.SlimeWolfEntity;
+import net.bluethedude.terrarianmight.entity.custom.SpazmatismEntity;
 import net.bluethedude.terrarianmight.item.TerrarianItemGroups;
 import net.bluethedude.terrarianmight.item.TerrarianItems;
 import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
@@ -12,6 +14,7 @@ import net.bluethedude.terrarianmight.sound.TerrarianJukeboxSongs;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.bluethedude.terrarianmight.util.TerrarianDataComponents;
 import net.bluethedude.terrarianmight.util.TerrarianHealthManager;
+import net.bluethedude.terrarianmight.util.TerrarianLootTableModifiers;
 import net.bluethedude.terrarianmight.world.gen.TerrarianWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
@@ -51,6 +54,7 @@ public class TerrarianMight implements ModInitializer {
 
         TerrarianDataComponents.registerDataComponentTypes();
         TerrarianHealthManager.registerHealthManager();
+        TerrarianLootTableModifiers.modifyLootTables();
 
         StrippableBlockRegistry.register(TerrarianBlocks.YELLOW_WILLOW_LOG, TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG);
         StrippableBlockRegistry.register(TerrarianBlocks.YELLOW_WILLOW_WOOD, TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD);
@@ -75,6 +79,8 @@ public class TerrarianMight implements ModInitializer {
         FlammableBlockRegistry.getDefaultInstance().add(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE, 5, 20);
 
         FabricDefaultAttributeRegistry.register(TerrarianEntityTypes.SLIME_WOLF, SlimeWolfEntity.createSummonAttributes());
+        FabricDefaultAttributeRegistry.register(TerrarianEntityTypes.SPAZ, SpazmatismEntity.createSummonAttributes());
+        FabricDefaultAttributeRegistry.register(TerrarianEntityTypes.REZ, RetinazerEntity.createSummonAttributes());
 
         TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
             factories.add((entity, random) -> new TradeOffer(

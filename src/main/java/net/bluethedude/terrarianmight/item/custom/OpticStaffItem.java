@@ -1,0 +1,101 @@
+package net.bluethedude.terrarianmight.item.custom;
+
+import net.bluethedude.terrarianmight.enchantments.TerrarianEnchantments;
+import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
+import net.bluethedude.terrarianmight.entity.custom.RetinazerEntity;
+import net.bluethedude.terrarianmight.entity.custom.SpazmatismEntity;
+import net.bluethedude.terrarianmight.item.custom.util.AbstractSummonItem;
+import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.component.type.ToolComponent;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+import net.minecraft.world.World;
+
+import java.util.List;
+
+public class OpticStaffItem extends AbstractSummonItem {
+
+    public static final int SUMMON_LIFESPAN = 800;
+    public static final int MANA_COST = 8;
+    public static final int MAX_MANA = 40;
+
+    public OpticStaffItem(Settings settings) {
+        super(settings);
+    }
+
+    @Override
+    public int getSummonLifespan() {
+        return SUMMON_LIFESPAN;
+    }
+
+    @Override
+    public int getManaCost() {
+        return MANA_COST;
+    }
+
+    @Override
+    public int getMaxMana(ItemStack stack) {
+        return MAX_MANA;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+
+        tooltip.addLast(Text.empty());
+        tooltip.addLast(Text.translatable("tooltip.terrarianmight.summon_item.optic_staff").formatted(Formatting.BLUE));
+
+        super.appendTooltip(stack, context, tooltip, type);
+    }
+
+    public static AttributeModifiersComponent createAttributeModifiers() {
+        return AttributeModifiersComponent.builder()
+                .add(
+                        EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        new EntityAttributeModifier(BASE_ATTACK_DAMAGE_MODIFIER_ID, 2.0, EntityAttributeModifier.Operation.ADD_VALUE),
+                        AttributeModifierSlot.MAINHAND
+                )
+                .add(
+                        EntityAttributes.GENERIC_ATTACK_SPEED,
+                        new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, -2.8F, EntityAttributeModifier.Operation.ADD_VALUE),
+                        AttributeModifierSlot.MAINHAND
+                )
+                .build();
+    }
+
+    public static ToolComponent createToolComponent() {
+        return new ToolComponent(List.of(), 1.0F, 2);
+    }
+
+    @Override
+    public void spawnMinion(World world, double x, double y, double z, PlayerEntity user, ItemStack stack) {
+        SpazmatismEntity spazmatismEntity = TerrarianEntityTypes.SPAZ.create(world);
+        if (spazmatismEntity != null) {
+            spazmatismEntity.refreshPositionAndAngles(x, y, z, world.getRandom().nextFloat() * 360.0F, 0.0F);
+            spazmatismEntity.setOwner(user);
+            world.spawnEntity(spazmatismEntity);
+        }
+        RetinazerEntity retinazerEntity = TerrarianEntityTypes.REZ.create(world);
+        if (retinazerEntity != null) {
+            retinazerEntity.refreshPositionAndAngles(x, y, z, world.getRandom().nextFloat() * 360.0F, 0.0F);
+            retinazerEntity.setOwner(user);
+            world.spawnEntity(retinazerEntity);
+        }
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+        return 20;
+    }
+
+    @Override
+    public int getEnchantability() {
+        return 1;
+    }
+}

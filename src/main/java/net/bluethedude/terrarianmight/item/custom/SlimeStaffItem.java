@@ -1,16 +1,17 @@
 package net.bluethedude.terrarianmight.item.custom;
 
+import net.bluethedude.terrarianmight.enchantments.TerrarianEnchantments;
 import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
 import net.bluethedude.terrarianmight.entity.custom.SlimeWolfEntity;
 import net.bluethedude.terrarianmight.item.custom.util.AbstractSummonItem;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -20,16 +21,34 @@ import java.util.List;
 
 public class SlimeStaffItem extends AbstractSummonItem {
 
+    public static final int SUMMON_LIFESPAN = 600;
+    public static final int MANA_COST = 5;
+    public static final int MAX_MANA = 20;
+
     public SlimeStaffItem(Settings settings) {
         super(settings);
     }
 
     @Override
+    public int getSummonLifespan() {
+        return SUMMON_LIFESPAN;
+    }
+
+    @Override
+    public int getManaCost() {
+        return MANA_COST;
+    }
+
+    @Override
+    public int getMaxMana(ItemStack stack) {
+        return MAX_MANA;
+    }
+
+    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("tooltip.terrarianmight.item.when_used").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("tooltip.terrarianmight.summon_item.slime_staff").formatted(Formatting.DARK_PURPLE));
-        tooltip.add(Text.translatable("tooltip.terrarianmight.magic_item.mana_cost", AbstractSummonItem.MANA_COST).formatted(Formatting.RED));
+
+        tooltip.addLast(Text.empty());
+        tooltip.addLast(Text.translatable("tooltip.terrarianmight.summon_item.slime_staff").formatted(Formatting.BLUE));
 
         super.appendTooltip(stack, context, tooltip, type);
     }
@@ -54,7 +73,7 @@ public class SlimeStaffItem extends AbstractSummonItem {
     }
 
     @Override
-    public void spawnMinion(World world, double x, double y, double z, PlayerEntity user) {
+    public void spawnMinion(World world, double x, double y, double z, PlayerEntity user, ItemStack stack) {
         SlimeWolfEntity slimeWolfEntity = TerrarianEntityTypes.SLIME_WOLF.create(world);
         if (slimeWolfEntity != null) {
             slimeWolfEntity.refreshPositionAndAngles(x, y, z, world.getRandom().nextFloat() * 360.0F, 0.0F);
@@ -64,12 +83,12 @@ public class SlimeStaffItem extends AbstractSummonItem {
     }
 
     @Override
-    public int getEnchantability() {
-        return 1;
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+        return 16;
     }
 
     @Override
-    public boolean canRepair(ItemStack stack, ItemStack ingredient) {
-        return ingredient.isOf(Items.SLIME_BALL);
+    public int getEnchantability() {
+        return 1;
     }
 }

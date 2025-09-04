@@ -44,7 +44,7 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(1, new TameableEscapeDangerGoal(1.5, DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES));
-        this.goalSelector.add(5, new RetinazerAttackGoal(this, 1.5, 12, 8.0f));
+        this.goalSelector.add(5, new RetinazerAttackGoal(this, 1.5, 16, 8.0f));
         this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0, 6.0F, 2.0F));
         this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));

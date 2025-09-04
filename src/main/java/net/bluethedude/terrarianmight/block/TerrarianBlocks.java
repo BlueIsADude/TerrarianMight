@@ -355,6 +355,7 @@ public class TerrarianBlocks {
                     LARGE_LIFE_CRYSTAL_BUD,
                     LIFE_CRYSTAL_CLUSTER
             );
+            entries.addBefore(Blocks.AZALEA_LEAVES, YELLOW_WILLOW_LEAVES);
             entries.addBefore(Blocks.AZALEA, YELLOW_WILLOW_SAPLING);
         });
 

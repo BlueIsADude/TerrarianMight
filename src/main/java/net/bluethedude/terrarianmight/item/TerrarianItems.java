@@ -104,6 +104,8 @@ public class TerrarianItems {
     public static void registerTerrarianItems() {
         TerrarianMight.LOGGER.info("Registering Mod Items for " + TerrarianMight.MOD_ID);
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries ->
+                entries.addBefore(Items.BAMBOO_RAFT, YELLOW_WILLOW_BOAT, YELLOW_WILLOW_CHEST_BOAT));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries ->
                 entries.addBefore(Items.BAMBOO_SIGN, YELLOW_WILLOW_SIGN_ITEM, YELLOW_WILLOW_HANGING_SIGN_ITEM));
 //        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries ->
@@ -111,14 +113,13 @@ public class TerrarianItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries ->
                 entries.addAfter(Items.AMETHYST_SHARD, LIFE_SHARD));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
-                entries.addAfter(Items.MACE,
-                        WAND_OF_SPARKING,
-                        AMETHYST_STAFF,
-                        ZEPHYR_SCEPTER,
-                        SLIME_STAFF,
-                        OPTIC_STAFF
-                );
                 entries.addAfter(Items.TOTEM_OF_UNDYING, LIFE_CRYSTAL);
+
+                entries.add(WAND_OF_SPARKING);
+                entries.add(AMETHYST_STAFF);
+                entries.add(ZEPHYR_SCEPTER);
+                entries.add(SLIME_STAFF);
+                entries.add(OPTIC_STAFF);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(entries ->
                 entries.addAfter(Items.GLOW_BERRIES, LIFE_FRUIT));

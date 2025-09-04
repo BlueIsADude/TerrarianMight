@@ -5,6 +5,7 @@ import net.bluethedude.terrarianmight.item.TerrarianItems;
 import net.bluethedude.terrarianmight.util.TerrarianTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.data.family.BlockFamily;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -12,8 +13,12 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.resource.featuretoggle.FeatureSet;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.minecraft.data.family.BlockFamilies.register;
 
 public class TerrarianRecipeProvider extends FabricRecipeProvider {
     public TerrarianRecipeProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
@@ -22,17 +27,25 @@ public class TerrarianRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
+        BlockFamily yellowWillowFamily = register(TerrarianBlocks.YELLOW_WILLOW_PLANKS)
+                .button(TerrarianBlocks.YELLOW_WILLOW_BUTTON)
+                .fence(TerrarianBlocks.YELLOW_WILLOW_FENCE)
+                .fenceGate(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE)
+                .pressurePlate(TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE)
+                .sign(TerrarianBlocks.YELLOW_WILLOW_SIGN, TerrarianBlocks.YELLOW_WILLOW_WALL_SIGN)
+                .slab(TerrarianBlocks.YELLOW_WILLOW_SLAB)
+                .stairs(TerrarianBlocks.YELLOW_WILLOW_STAIRS)
+                .door(TerrarianBlocks.YELLOW_WILLOW_DOOR)
+                .trapdoor(TerrarianBlocks.YELLOW_WILLOW_TRAPDOOR)
+                .group("wooden")
+                .unlockCriterionName("has_planks")
+                .build();
+        generateFamily(exporter, yellowWillowFamily, FeatureSet.of(FeatureFlags.VANILLA));
         offerPlanksRecipe(exporter, TerrarianBlocks.YELLOW_WILLOW_PLANKS, TerrarianTags.Items.YELLOW_WILLOW_LOGS, 4);
-        createStairsRecipe(TerrarianBlocks.YELLOW_WILLOW_STAIRS, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, TerrarianBlocks.YELLOW_WILLOW_SLAB, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createFenceRecipe(TerrarianBlocks.YELLOW_WILLOW_FENCE, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createFenceGateRecipe(TerrarianBlocks.YELLOW_WILLOW_FENCE_GATE, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createTransmutationRecipe(TerrarianBlocks.YELLOW_WILLOW_BUTTON, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createPressurePlateRecipe(RecipeCategory.REDSTONE, TerrarianBlocks.YELLOW_WILLOW_PRESSURE_PLATE, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createDoorRecipe(TerrarianBlocks.YELLOW_WILLOW_DOOR, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createTrapdoorRecipe(TerrarianBlocks.YELLOW_WILLOW_TRAPDOOR, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
-        createSignRecipe(TerrarianItems.YELLOW_WILLOW_SIGN_ITEM, Ingredient.ofItems(TerrarianBlocks.YELLOW_WILLOW_PLANKS));
+
         offerHangingSignRecipe(exporter, TerrarianItems.YELLOW_WILLOW_HANGING_SIGN_ITEM, TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG);
+        offerBoatRecipe(exporter, TerrarianItems.YELLOW_WILLOW_BOAT, TerrarianBlocks.YELLOW_WILLOW_PLANKS);
+        offerChestBoatRecipe(exporter, TerrarianItems.YELLOW_WILLOW_CHEST_BOAT, TerrarianItems.YELLOW_WILLOW_BOAT);
 
         offer2x2CompactingRecipe(exporter, RecipeCategory.COMBAT, TerrarianItems.LIFE_CRYSTAL, TerrarianItems.LIFE_SHARD);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.FOOD, TerrarianItems.LIFE_FRUIT)

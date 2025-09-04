@@ -46,7 +46,7 @@ public class SpazmatismEntity extends AbstractSummonEntity {
     protected void initGoals() {
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(1, new TameableEscapeDangerGoal(1.5, DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES));
-        this.goalSelector.add(5, new SpazmatismAttackGoal(this, 2.0, true));
+        this.goalSelector.add(5, new SpazmatismAttackGoal(this, 1.5, true));
         this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0, 6.0F, 2.0F));
         this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));

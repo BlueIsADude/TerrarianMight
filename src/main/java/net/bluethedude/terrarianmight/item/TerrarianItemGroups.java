@@ -16,8 +16,8 @@ public class TerrarianItemGroups {
             FabricItemGroup.builder().icon(() -> new ItemStack(TerrarianBlocks.YELLOW_WILLOW_SAPLING))
                     .displayName(Text.translatable("itemgroup.terrarianmight.title"))
                     .entries((displayContext, entries) -> {
-                        entries.add(TerrarianBlocks.YELLOW_WILLOW_SAPLING);
                         entries.add(TerrarianBlocks.YELLOW_WILLOW_LEAVES);
+                        entries.add(TerrarianBlocks.YELLOW_WILLOW_SAPLING);
                         entries.add(TerrarianBlocks.YELLOW_WILLOW_LOG);
                         entries.add(TerrarianBlocks.YELLOW_WILLOW_WOOD);
                         entries.add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG);

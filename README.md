@@ -27,6 +27,7 @@ There are features in the mod that, currently, are not listed here. I suggest yo
 
 ## Known Issues
 - If Amendments is installed, Heart Lanterns can't be used when placed on walls.
+- A certain config option may potentially cause certain items to lag servers when held. While having this enabled was the intended way to play, it is now disabled by default due to this issue.
 
 ## Planned Features
 These are all the currently planned mod features! Note that nothing here is concrete, and I am only one dev, so it may take a while for these to be implemented!

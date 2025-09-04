@@ -26,7 +26,7 @@ public class TerrarianConfig extends MidnightConfig {
     @Entry(category = TERRARIAN_MIGHT, min = 0, max = 255) public static int lanternAmplifier = 0;
 
     @Comment(category = TERRARIAN_MIGHT, centered = true) public static Comment magic;
-    @Entry(category = TERRARIAN_MIGHT) public static boolean passiveManaRegen = true;
+    @Entry(category = TERRARIAN_MIGHT) public static boolean passiveManaRegen = false;
     @Condition(requiredOption = "passiveManaRegen", requiredValue = "true")
     @Entry(category = TERRARIAN_MIGHT) public static int manaRegenRate = 60;
 

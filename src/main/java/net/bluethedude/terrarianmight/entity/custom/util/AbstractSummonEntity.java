@@ -1,5 +1,7 @@
 package net.bluethedude.terrarianmight.entity.custom.util;
 
+import net.bluethedude.terrarianmight.criterion.TerrarianCriteria;
+import net.bluethedude.terrarianmight.entity.custom.RetinazerEntity;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -16,7 +18,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.World;
@@ -29,6 +36,7 @@ public abstract class AbstractSummonEntity extends TameableEntity implements Ang
     private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(AbstractSummonEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     private int ticksSinceSpawn;
+    public int maxLifespan = 1;
     private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
     @Nullable
     private UUID angryAt;
@@ -36,10 +44,6 @@ public abstract class AbstractSummonEntity extends TameableEntity implements Ang
     protected AbstractSummonEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
         this.setTamed(false, false);
-    }
-
-    public int getMaxLifetime() {
-        return 1;
     }
 
     @Override
@@ -88,7 +92,7 @@ public abstract class AbstractSummonEntity extends TameableEntity implements Ang
     protected void mobTick() {
         if (this.isTamed()) {
             this.ticksSinceSpawn++;
-            if (this.ticksSinceSpawn % getMaxLifetime() == 0 || this.getOwner() != null && this.getOwner().isDead()) {
+            if (this.ticksSinceSpawn % maxLifespan == 0 || this.getOwner() != null && this.getOwner().isDead()) {
                 this.vanish();
             }
         }
@@ -138,11 +142,26 @@ public abstract class AbstractSummonEntity extends TameableEntity implements Ang
     }
 
     @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ActionResult actionResult = super.interactMob(player, hand);
+        if (!this.getWorld().isClient) {
+            if (this.isTamed() && this.getAngerTime() != 0 && this.isOwner(player)) {
+                this.setAngerTime(0);
+                player.sendMessage(Text.translatable("alert.terrarianmight.calmed_down", this.getName()).formatted(Formatting.WHITE), true);
+                return ActionResult.SUCCESS_NO_ITEM_USED;
+            }
+        }
+        return actionResult;
+    }
+
+    @Override
     public boolean canAttackWithOwner(LivingEntity target, LivingEntity owner) {
         if (target instanceof CreeperEntity || target instanceof GhastEntity || target instanceof ArmorStandEntity) {
             return false;
         } else if (target instanceof AbstractSummonEntity summonEntity) {
             return !summonEntity.isTamed() || summonEntity.getOwner() != owner;
+        } else if (target instanceof RetinazerEntity retinazerEntity) {
+            return !retinazerEntity.isTamed() || retinazerEntity.getOwner() != owner;
         } else if (target instanceof WolfEntity wolfEntity) {
             return !wolfEntity.isTamed() || wolfEntity.getOwner() != owner;
         } else if (target instanceof PlayerEntity playerEntity && owner instanceof PlayerEntity playerEntity2 && !playerEntity2.shouldDamagePlayer(playerEntity)) {
@@ -154,7 +173,10 @@ public abstract class AbstractSummonEntity extends TameableEntity implements Ang
 
     @Override
     public void setOwner(PlayerEntity player) {
-        this.setTamed(true, true);
+        this.setTamed(true, false);
         this.setOwnerUuid(player.getUuid());
+        if (player instanceof ServerPlayerEntity serverPlayerEntity) {
+            TerrarianCriteria.SUMMON_MINION.trigger(serverPlayerEntity, this);
+        }
     }
 }

@@ -10,8 +10,6 @@ import net.minecraft.util.Identifier;
 public class TerrarianParticleTypes {
     public static final SimpleParticleType LIFE_HEART =
             registerParticle("life_heart", FabricParticleTypes.simple());
-    public static final SimpleParticleType ITEM_PORKCHOP =
-            registerParticle("item_porkchop", FabricParticleTypes.simple());
     public static final SimpleParticleType MAGIC_BOLT =
             registerParticle("magic_bolt", FabricParticleTypes.simple());
     public static final SimpleParticleType MAGIC_BOLT_SMALL =

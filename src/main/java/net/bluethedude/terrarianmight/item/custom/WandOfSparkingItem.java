@@ -1,7 +1,8 @@
 package net.bluethedude.terrarianmight.item.custom;
 
-import net.bluethedude.terrarianmight.entity.custom.PorkChopEntity;
+import net.bluethedude.terrarianmight.entity.custom.SparkEntity;
 import net.bluethedude.terrarianmight.item.custom.util.AbstractMagicItem;
+import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
@@ -12,7 +13,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -20,30 +20,19 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class PorkStormItem extends AbstractMagicItem {
+public class WandOfSparkingItem extends AbstractMagicItem {
+    private final int projectileLifespan;
 
-    public static final int MANA_COST = 1;
-    public static final int MAX_MANA = 100;
-
-    public PorkStormItem(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public int getManaCost() {
-        return MANA_COST;
-    }
-
-    @Override
-    public int getMaxMana(ItemStack stack) {
-        return MAX_MANA;
+    public WandOfSparkingItem(int manaCost, int maxMana, int projectileLifespan, Settings settings) {
+        super(manaCost, maxMana, settings);
+        this.projectileLifespan = projectileLifespan;
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
 
         tooltip.addLast(Text.empty());
-        tooltip.addLast(Text.translatable("tooltip.terrarianmight.magic_item.amethyst_staff").formatted(Formatting.BLUE));
+        tooltip.addLast(Text.translatable("tooltip.terrarianmight.magic_item.wand_of_sparking").formatted(Formatting.BLUE));
 
         super.appendTooltip(stack, context, tooltip, type);
     }
@@ -57,7 +46,7 @@ public class PorkStormItem extends AbstractMagicItem {
                 )
                 .add(
                         EntityAttributes.GENERIC_ATTACK_SPEED,
-                        new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, 0.0F, EntityAttributeModifier.Operation.ADD_VALUE),
+                        new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, -2.8F, EntityAttributeModifier.Operation.ADD_VALUE),
                         AttributeModifierSlot.MAINHAND
                 )
                 .build();
@@ -71,19 +60,20 @@ public class PorkStormItem extends AbstractMagicItem {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (user instanceof PlayerEntity playerEntity) {
             if (!world.isClient) {
-                PorkChopEntity porkchopEntity = new PorkChopEntity(world, user);
-                porkchopEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 2.5F, 1.0F);
-                world.spawnEntity(porkchopEntity);
+                SparkEntity sparkEntity = new SparkEntity(world, user);
+                shoot(playerEntity, sparkEntity, 0.75F, 1.5F);
+                sparkEntity.maxLifespan = projectileLifespan;
+                world.spawnEntity(sparkEntity);
             }
             world.playSound(
                     null,
                     playerEntity.getX(),
                     playerEntity.getY(),
                     playerEntity.getZ(),
-                    SoundEvents.ENTITY_PIG_AMBIENT,
+                    TerrarianSoundEvents.ITEM_MAGIC_ITEM_CAST_SPELL,
                     SoundCategory.PLAYERS,
                     1.0F,
-                    2.0F / (world.getRandom().nextFloat() * 1.4F + 1.2F)
+                    1.5F / (world.getRandom().nextFloat() * 0.4F + 1.2F)
             );
             if (!playerEntity.isCreative()) {
                 setMana(stack, getMana(stack) - getManaCost());
@@ -96,7 +86,7 @@ public class PorkStormItem extends AbstractMagicItem {
 
     @Override
     public int getMaxUseTime(ItemStack stack, LivingEntity user) {
-        return 1;
+        return 20;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package net.bluethedude.terrarianmight.item.custom;
 
-import net.bluethedude.terrarianmight.enchantments.TerrarianEnchantments;
 import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
 import net.bluethedude.terrarianmight.entity.custom.RetinazerEntity;
 import net.bluethedude.terrarianmight.entity.custom.SpazmatismEntity;
@@ -12,6 +11,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
@@ -22,27 +22,8 @@ import java.util.List;
 
 public class OpticStaffItem extends AbstractSummonItem {
 
-    public static final int SUMMON_LIFESPAN = 800;
-    public static final int MANA_COST = 8;
-    public static final int MAX_MANA = 40;
-
-    public OpticStaffItem(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public int getSummonLifespan() {
-        return SUMMON_LIFESPAN;
-    }
-
-    @Override
-    public int getManaCost() {
-        return MANA_COST;
-    }
-
-    @Override
-    public int getMaxMana(ItemStack stack) {
-        return MAX_MANA;
+    public OpticStaffItem(int manaCost, int maxMana, int summonLifespan, Item.Settings settings) {
+        super(manaCost, maxMana, summonLifespan, settings);
     }
 
     @Override
@@ -79,12 +60,14 @@ public class OpticStaffItem extends AbstractSummonItem {
         if (spazmatismEntity != null) {
             spazmatismEntity.refreshPositionAndAngles(x, y, z, world.getRandom().nextFloat() * 360.0F, 0.0F);
             spazmatismEntity.setOwner(user);
+            spazmatismEntity.maxLifespan = getSummonLifespan();
             world.spawnEntity(spazmatismEntity);
         }
         RetinazerEntity retinazerEntity = TerrarianEntityTypes.REZ.create(world);
         if (retinazerEntity != null) {
             retinazerEntity.refreshPositionAndAngles(x, y, z, world.getRandom().nextFloat() * 360.0F, 0.0F);
             retinazerEntity.setOwner(user);
+            retinazerEntity.maxLifespan = getSummonLifespan();
             world.spawnEntity(retinazerEntity);
         }
     }

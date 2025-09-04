@@ -1,6 +1,5 @@
 package net.bluethedude.terrarianmight.item.custom;
 
-import net.bluethedude.terrarianmight.enchantments.TerrarianEnchantments;
 import net.bluethedude.terrarianmight.item.custom.util.AbstractMagicItem;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.component.type.AttributeModifierSlot;
@@ -11,6 +10,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.WindChargeEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.sound.SoundCategory;
@@ -23,21 +23,8 @@ import java.util.List;
 
 public class ZephyrScepterItem extends AbstractMagicItem {
 
-    public static final int MANA_COST = 3;
-    public static final int MAX_MANA = 30;
-
-    public ZephyrScepterItem(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public int getManaCost() {
-        return MANA_COST;
-    }
-
-    @Override
-    public int getMaxMana(ItemStack stack) {
-        return MAX_MANA;
+    public ZephyrScepterItem(int manaCost, int maxMana, Item.Settings settings) {
+        super(manaCost, maxMana, settings);
     }
 
     @Override
@@ -73,16 +60,12 @@ public class ZephyrScepterItem extends AbstractMagicItem {
         if (user instanceof PlayerEntity playerEntity) {
             if (!world.isClient) {
                 WindChargeEntity windChargeEntity1 = new WindChargeEntity(playerEntity, world, user.getX(), user.getEyeY(), user.getZ());
-                windChargeEntity1.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.75F, 0.0F);
+                shoot(playerEntity, windChargeEntity1, 1.5F, 1.0F);
                 world.spawnEntity(windChargeEntity1);
 
                 WindChargeEntity windChargeEntity2 = new WindChargeEntity(playerEntity, world, user.getX(), user.getEyeY(), user.getZ());
-                windChargeEntity2.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
+                shoot(playerEntity, windChargeEntity2, 1.5F, 1.0F);
                 world.spawnEntity(windChargeEntity2);
-
-                WindChargeEntity windChargeEntity3 = new WindChargeEntity(playerEntity, world, user.getX(), user.getEyeY(), user.getZ());
-                windChargeEntity3.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
-                world.spawnEntity(windChargeEntity3);
             }
             world.playSound(
                     null,

@@ -1,0 +1,40 @@
+{
+  "parent": "terrarianmight:adventure/get_life_shard",
+  "criteria": {
+    "use_life_crystal": {
+      "conditions": {
+        "item": {
+          "items": "terrarianmight:life_crystal"
+        },
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "minecraft:player"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:using_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.terrarianmight.use_life_crystal.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "terrarianmight:life_crystal"
+    },
+    "title": {
+      "translate": "advancements.terrarianmight.use_life_crystal.title"
+    }
+  },
+  "requirements": [
+    [
+      "use_life_crystal"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -15,6 +15,12 @@ import net.minecraft.predicate.entity.SlimePredicate;
 import net.minecraft.util.Identifier;
 
 public class TerrarianLootTableModifiers {
+    private static final Identifier MINESHAFT_ID =
+            Identifier.ofVanilla("chests/abandoned_mineshaft");
+    private static final Identifier DUNGEON_ID =
+            Identifier.ofVanilla("chests/simple_dungeon");
+    private static final Identifier JUNGLE_TEMPLE_ID =
+            Identifier.ofVanilla("chests/jungle_temple");
     private static final Identifier VAULT_ID =
             Identifier.ofVanilla("chests/trial_chambers/reward_unique");
     private static final Identifier END_CITY_ID =
@@ -24,7 +30,34 @@ public class TerrarianLootTableModifiers {
 
     public static void modifyLootTables(){
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
-            if(VAULT_ID.equals(key.getValue())) {
+            if (MINESHAFT_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
+                        .with(ItemEntry.builder(TerrarianItems.WAND_OF_SPARKING))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)).build());
+                tableBuilder.pool(poolBuilder);
+                poolBuilder.build();
+            }
+            if (DUNGEON_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
+                        .with(ItemEntry.builder(TerrarianItems.WAND_OF_SPARKING))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)).build());
+                tableBuilder.pool(poolBuilder);
+                poolBuilder.build();
+            }
+            if (JUNGLE_TEMPLE_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.1f))
+                        .with(ItemEntry.builder(TerrarianItems.WAND_OF_SPARKING))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)).build());
+                tableBuilder.pool(poolBuilder);
+                poolBuilder.build();
+            }
+            if (VAULT_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.1f))
@@ -33,7 +66,7 @@ public class TerrarianLootTableModifiers {
                 tableBuilder.pool(poolBuilder);
                 poolBuilder.build();
             }
-            if(END_CITY_ID.equals(key.getValue())) {
+            if (END_CITY_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.025f))
@@ -42,7 +75,7 @@ public class TerrarianLootTableModifiers {
                 tableBuilder.pool(poolBuilder);
                 poolBuilder.build();
             }
-            if(SLIME_ID.equals(key.getValue())) {
+            if (SLIME_ID.equals(key.getValue())) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .with(ItemEntry.builder(TerrarianItems.SLIME_STAFF))

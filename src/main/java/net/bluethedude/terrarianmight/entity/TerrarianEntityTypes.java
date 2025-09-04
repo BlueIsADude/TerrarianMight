@@ -13,37 +13,36 @@ import net.minecraft.util.math.Vec3d;
 
 public class TerrarianEntityTypes {
 
+    private static final RegistryKey<EntityType<?>> SPARK_KEY =
+            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(TerrarianMight.MOD_ID, "spark"));
     private static final RegistryKey<EntityType<?>> MAGIC_BOLT_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(TerrarianMight.MOD_ID, "magic_bolt"));
-    private static final RegistryKey<EntityType<?>> PORK_CHOP_KEY =
-            RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(TerrarianMight.MOD_ID, "pork_chop"));
     private static final RegistryKey<EntityType<?>> END_LASER_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(TerrarianMight.MOD_ID, "end_laser"));
 
-
     private static final RegistryKey<EntityType<?>> SLIME_WOLF_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(TerrarianMight.MOD_ID, "slime_wolf"));
-
     private static final RegistryKey<EntityType<?>> SPAZ_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(TerrarianMight.MOD_ID, "spazmatism"));
     private static final RegistryKey<EntityType<?>> REZ_KEY =
             RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of(TerrarianMight.MOD_ID, "retinazer"));
 
+    public static final EntityType<SparkEntity> SPARK = Registry.register(Registries.ENTITY_TYPE,
+            Identifier.of(TerrarianMight.MOD_ID, "spark"),
+            EntityType.Builder.<SparkEntity>create(SparkEntity::new, SpawnGroup.MISC)
+                    .dimensions(0.3125f, 0.3125f)
+                    .eyeHeight(0.13F)
+                    .maxTrackingRange(4)
+                    .trackingTickInterval(20)
+                    .build(String.valueOf(SPARK_KEY)));
     public static final EntityType<MagicBoltEntity> MAGIC_BOLT = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(TerrarianMight.MOD_ID, "magic_bolt"),
             EntityType.Builder.<MagicBoltEntity>create(MagicBoltEntity::new, SpawnGroup.MISC)
-                    .dimensions(0.35f, 0.35f)
+                    .dimensions(0.4125f, 0.4125f)
                     .eyeHeight(0.13F)
                     .maxTrackingRange(4)
                     .trackingTickInterval(20)
                     .build(String.valueOf(MAGIC_BOLT_KEY)));
-    public static final EntityType<PorkChopEntity> PORK_CHOP = Registry.register(Registries.ENTITY_TYPE,
-            Identifier.of(TerrarianMight.MOD_ID, "pork_chop"),
-            EntityType.Builder.<PorkChopEntity>create(PorkChopEntity::new, SpawnGroup.MISC)
-                    .dimensions(0.25f, 0.25f)
-                    .maxTrackingRange(4)
-                    .trackingTickInterval(10)
-                    .build(String.valueOf(PORK_CHOP_KEY)));
     public static final EntityType<EndLaserEntity> END_LASER = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(TerrarianMight.MOD_ID, "end_laser"),
             EntityType.Builder.<EndLaserEntity>create(EndLaserEntity::new, SpawnGroup.MISC)
@@ -61,7 +60,6 @@ public class TerrarianEntityTypes {
                     .passengerAttachments(new Vec3d(0.0, 0.81875, -0.0625))
                     .maxTrackingRange(10)
                     .build(String.valueOf(SLIME_WOLF_KEY)));
-
     public static final EntityType<SpazmatismEntity> SPAZ = Registry.register(Registries.ENTITY_TYPE,
             Identifier.of(TerrarianMight.MOD_ID, "spazmatism"),
             EntityType.Builder.create(SpazmatismEntity::new, SpawnGroup.CREATURE)

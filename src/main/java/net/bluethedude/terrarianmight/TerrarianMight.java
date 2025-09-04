@@ -2,7 +2,9 @@ package net.bluethedude.terrarianmight;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
+import net.bluethedude.terrarianmight.criterion.TerrarianCriteria;
 import net.bluethedude.terrarianmight.entity.TerrarianBoats;
+import net.bluethedude.terrarianmight.entity.damage.TerrarianDamageTypes;
 import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
 import net.bluethedude.terrarianmight.entity.custom.RetinazerEntity;
 import net.bluethedude.terrarianmight.entity.custom.SlimeWolfEntity;
@@ -10,7 +12,6 @@ import net.bluethedude.terrarianmight.entity.custom.SpazmatismEntity;
 import net.bluethedude.terrarianmight.item.TerrarianItemGroups;
 import net.bluethedude.terrarianmight.item.TerrarianItems;
 import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
-import net.bluethedude.terrarianmight.sound.TerrarianJukeboxSongs;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.bluethedude.terrarianmight.util.TerrarianDataComponents;
 import net.bluethedude.terrarianmight.util.TerrarianHealthManager;
@@ -47,10 +48,14 @@ public class TerrarianMight implements ModInitializer {
         }
 
         TerrarianSoundEvents.registerSoundEvents();
-        TerrarianJukeboxSongs.registerJukeboxSongs();
+//        TerrarianJukeboxSongs.registerJukeboxSongs();
         TerrarianParticleTypes.registerParticles();
 
         TerrarianWorldGeneration.generateTerrarianWorldGen();
+
+        TerrarianDamageTypes.registerTerrarianDamageTypes();
+
+        TerrarianCriteria.registerTerrarianCriteria();
 
         TerrarianDataComponents.registerDataComponentTypes();
         TerrarianHealthManager.registerHealthManager();

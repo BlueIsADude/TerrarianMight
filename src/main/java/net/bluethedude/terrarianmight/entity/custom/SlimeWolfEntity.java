@@ -1,7 +1,6 @@
 package net.bluethedude.terrarianmight.entity.custom;
 
 import net.bluethedude.terrarianmight.entity.custom.util.AbstractSummonEntity;
-import net.bluethedude.terrarianmight.item.custom.SlimeStaffItem;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.PathNodeType;
@@ -20,6 +19,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 public class SlimeWolfEntity extends AbstractSummonEntity {
+
     public SlimeWolfEntity(EntityType<? extends TameableEntity> entityType, World world) {
         super(entityType, world);
         this.setTamed(false, false);
@@ -49,11 +49,6 @@ public class SlimeWolfEntity extends AbstractSummonEntity {
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4F)
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 40.0)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0);
-    }
-
-    @Override
-    public int getMaxLifetime() {
-        return SlimeStaffItem.SUMMON_LIFESPAN;
     }
 
     protected ParticleEffect getParticles() {

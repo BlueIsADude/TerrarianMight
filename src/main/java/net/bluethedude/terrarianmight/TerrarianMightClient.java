@@ -8,7 +8,6 @@ import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
 import net.bluethedude.terrarianmight.entity.client.*;
 import net.bluethedude.terrarianmight.particle.LifeHeartParticle;
 import net.bluethedude.terrarianmight.particle.MagicBoltParticle;
-import net.bluethedude.terrarianmight.particle.TerrarianCrackParticle;
 import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -20,7 +19,7 @@ import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
-import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.client.render.entity.EmptyEntityRenderer;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -45,7 +44,6 @@ public class TerrarianMightClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.YELLOW_WILLOW_DOOR, RenderLayer.getCutout());
 
         ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.LIFE_HEART, LifeHeartParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.ITEM_PORKCHOP, new TerrarianCrackParticle.PorkChopFactory());
         ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.MAGIC_BOLT, MagicBoltParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.MAGIC_BOLT_SMALL, MagicBoltParticle.SmallFactory::new);
         ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.EYE_LASER, MagicBoltParticle.SmallFactory::new);
@@ -54,9 +52,9 @@ public class TerrarianMightClient implements ClientModInitializer {
 
         TerraformBoatClientHelper.registerModelLayers(TerrarianBoats.YELLOW_WILLOW_BOAT_ID, false);
 
+        EntityRendererRegistry.register(TerrarianEntityTypes.SPARK, EmptyEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(MagicBoltEntityModel.MAGIC_BOLT, MagicBoltEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(TerrarianEntityTypes.MAGIC_BOLT, MagicBoltEntityRenderer::new);
-        EntityRendererRegistry.register(TerrarianEntityTypes.PORK_CHOP, FlyingItemEntityRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(EndLaserEntityModel.END_LASER, EndLaserEntityModel::getTexturedModelData);
         EntityRendererRegistry.register(TerrarianEntityTypes.END_LASER, EndLaserEntityRenderer::new);
 

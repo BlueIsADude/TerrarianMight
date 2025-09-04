@@ -20,6 +20,9 @@ Surrounding a Lantern with 4 Life Shards will net you a **Heart Lantern**! This 
 
 ## Yellow Willow Trees
 Spawning rarely in forests and plains, these Yellow Willow trees offer not only new yellow leaves and vines, but also a new Yellow Willow wood set! If you're having trouble finding them however, you can also get them from the Wandering Trader!
+
+## Secrets?
+There are features in the mod that, currently, are not listed here. I suggest you download the mod, use the base config options, hop onto a survival world, and find these yourself naturally... I wont spoil what you may find, but I'm sure you'll have a *magical* experience. ;)
 </details>
 
 ## Known Issues
@@ -32,8 +35,6 @@ These are all the currently planned mod features! Note that nothing here is conc
 - Glowing Mushroom Fields! Found similarly to Lush Caves, featuring Spore Bats and other mushroom-themed mobs!
 - Cluster Potions! Mutated bottles that are able to hold 3 charges worth of potion! Made by brewing any potion with a Glowing Mushroom.
 ### Considered
-- Magic Weapons! Use staffs to fire magical projectiles at the cost of Mana. Each staff has its own mana bar instead of durability, and mana is recharged by gaining xp (similarly to repairing weapons with mending, but likely nerfed to an extent.)
-- Summoner Weapons! Use special artifacts to summon creatures that will fight in your stead! You can only have 1 out at a time.
 - Lunar Events! Rare events to make your nights (or days) tougher! Usually require a special item to start.
 ### Likely Won't Be Added
 - Summoner Whips

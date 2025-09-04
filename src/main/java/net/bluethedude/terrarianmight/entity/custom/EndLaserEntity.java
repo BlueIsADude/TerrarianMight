@@ -1,5 +1,6 @@
 package net.bluethedude.terrarianmight.entity.custom;
 
+import net.bluethedude.terrarianmight.entity.damage.TerrarianDamageTypes;
 import net.bluethedude.terrarianmight.entity.TerrarianEntityTypes;
 import net.bluethedude.terrarianmight.entity.custom.util.AbstractMagicProjectileEntity;
 import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
@@ -39,11 +40,11 @@ public class EndLaserEntity extends AbstractMagicProjectileEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (this.getWorld() instanceof ServerWorld serverWorld) {
-            Entity var7 = entityHitResult.getEntity();
-            Entity entity = this.getOwner();
-            DamageSource damageSource = this.getDamageSources().indirectMagic(this, entity);
-            var7.damage(damageSource, 1.0F);
-            EnchantmentHelper.onTargetDamaged(serverWorld, var7, damageSource);
+            Entity entity = entityHitResult.getEntity();
+            Entity owner = this.getOwner();
+            DamageSource damageSource = this.getDamageSources().create(TerrarianDamageTypes.LASER, this, owner);
+            entity.damage(damageSource, 1.0F);
+            EnchantmentHelper.onTargetDamaged(serverWorld, entity, damageSource);
         }
     }
 
@@ -58,8 +59,8 @@ public class EndLaserEntity extends AbstractMagicProjectileEntity {
                         getZ(),
                         5, 0, 0, 0, 0.01
                 );
-                this.discard();
             }
+            this.discard();
         }
     }
 

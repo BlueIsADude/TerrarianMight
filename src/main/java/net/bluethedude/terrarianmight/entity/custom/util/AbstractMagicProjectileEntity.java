@@ -2,6 +2,7 @@ package net.bluethedude.terrarianmight.entity.custom.util;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.particle.ParticleEffect;
@@ -13,6 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractMagicProjectileEntity extends ProjectileEntity {
     private int ticksSinceFired;
+    public int maxLifespan = 1;
 
     protected AbstractMagicProjectileEntity(EntityType<? extends AbstractMagicProjectileEntity> entityType, World world) {
         super(entityType, world);
@@ -24,7 +26,7 @@ public abstract class AbstractMagicProjectileEntity extends ProjectileEntity {
     }
 
     protected AbstractMagicProjectileEntity(EntityType<? extends AbstractMagicProjectileEntity> type, LivingEntity owner, World world) {
-        this(type, owner.getX(), owner.getEyeY() - 0.1F, owner.getZ(), world);
+        this(type, owner.getX(), owner.getEyeY() - 0.15F, owner.getZ(), world);
         this.setOwner(owner);
     }
 
@@ -52,15 +54,13 @@ public abstract class AbstractMagicProjectileEntity extends ProjectileEntity {
             this.hitOrDeflect(hitResult);
         }
 
-        this.checkBlockCollision();
         Vec3d vec3d = this.getVelocity();
-        double d = this.getX() + vec3d.x;
-        double e = this.getY() + vec3d.y;
-        double f = this.getZ() + vec3d.z;
-        this.updateRotation();
-        float h = 0.99F;
+        this.move(MovementType.SELF, vec3d);
+        this.setVelocity(vec3d.multiply(0.99));
 
-        this.setVelocity(vec3d.multiply(h));
+        this.checkBlockCollision();
+        this.updateRotation();
+
         ParticleEffect particleEffect = this.getFlyingParticleType();
         World world = this.getWorld();
         if (particleEffect != null) {
@@ -69,22 +69,20 @@ public abstract class AbstractMagicProjectileEntity extends ProjectileEntity {
                         getX(),
                         getY(),
                         getZ(),
-                        1, 0.04, 0.04, 0.04, 0
+                        1, 0.05, 0.05, 0.05, 0
                 );
             }
         }
         this.ticksSinceFired++;
-        if (this.ticksSinceFired % getMaxLifetime() == 0) {
+        if (this.ticksSinceFired % getMaxLifespan() == 0) {
             this.projectileExpire(world);
         }
-        this.setPosition(d, e, f);
     }
 
     @Override
     protected void onCollision(HitResult hitResult) {
         super.onCollision(hitResult);
-        World world = this.getWorld();
-        this.projectileExpire(world);
+        this.projectileExpire(this.getWorld());
     }
 
     @Nullable
@@ -107,12 +105,17 @@ public abstract class AbstractMagicProjectileEntity extends ProjectileEntity {
                         getZ(),
                         20, 0, 0, 0, 0.05
                 );
-                this.discard();
             }
+            this.discard();
         }
     }
 
-    protected int getMaxLifetime() {
-        return 38;
+    @Override
+    public boolean isAttackable() {
+        return false;
+    }
+
+    protected int getMaxLifespan() {
+        return maxLifespan;
     }
 }

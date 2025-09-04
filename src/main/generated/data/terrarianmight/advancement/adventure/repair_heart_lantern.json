@@ -1,0 +1,48 @@
+{
+  "parent": "terrarianmight:adventure/get_life_shard",
+  "criteria": {
+    "repair_heart_lantern": {
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "terrarianmight:chipped_heart_lantern",
+                  "terrarianmight:damaged_heart_lantern",
+                  "terrarianmight:broken_heart_lantern"
+                ]
+              }
+            }
+          },
+          {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "items": "terrarianmight:life_shard"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.terrarianmight.repair_heart_lantern.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "terrarianmight:heart_lantern"
+    },
+    "title": {
+      "translate": "advancements.terrarianmight.repair_heart_lantern.title"
+    }
+  },
+  "requirements": [
+    [
+      "repair_heart_lantern"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

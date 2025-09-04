@@ -30,8 +30,16 @@ public class TerrarianItems {
             )
     );
 
+    public static final Item WAND_OF_SPARKING = registerItem("wand_of_sparking",
+            new WandOfSparkingItem(2, 20, 14, new Item.Settings()
+                    .maxCount(1)
+                    .rarity(Rarity.COMMON)
+                    .attributeModifiers(WandOfSparkingItem.createAttributeModifiers())
+                    .component(DataComponentTypes.TOOL, WandOfSparkingItem.createToolComponent())
+            )
+    );
     public static final Item AMETHYST_STAFF = registerItem("amethyst_staff",
-            new AmethystStaffItem(new Item.Settings()
+            new AmethystStaffItem(1, 50, 38, new Item.Settings()
                     .maxCount(1)
                     .rarity(Rarity.RARE)
                     .attributeModifiers(AmethystStaffItem.createAttributeModifiers())
@@ -39,23 +47,16 @@ public class TerrarianItems {
             )
     );
     public static final Item ZEPHYR_SCEPTER = registerItem("zephyr_scepter",
-            new ZephyrScepterItem(new Item.Settings()
+            new ZephyrScepterItem(5, 30, new Item.Settings()
                     .maxCount(1)
                     .rarity(Rarity.EPIC)
                     .attributeModifiers(ZephyrScepterItem.createAttributeModifiers())
                     .component(DataComponentTypes.TOOL, ZephyrScepterItem.createToolComponent())
             )
     );
-    public static final Item PORK_STORM = registerItem("pork_storm",
-            new PorkStormItem(new Item.Settings()
-                    .maxCount(1)
-                    .rarity(Rarity.EPIC)
-                    .attributeModifiers(PorkStormItem.createAttributeModifiers())
-                    .component(DataComponentTypes.TOOL, PorkStormItem.createToolComponent())
-            )
-    );
+
     public static final Item SLIME_STAFF = registerItem("slime_staff",
-            new SlimeStaffItem(new Item.Settings()
+            new SlimeStaffItem(4, 20, 800, new Item.Settings()
                     .maxCount(1)
                     .rarity(Rarity.RARE)
                     .attributeModifiers(SlimeStaffItem.createAttributeModifiers())
@@ -63,7 +64,7 @@ public class TerrarianItems {
             )
     );
     public static final Item OPTIC_STAFF = registerItem("optic_staff",
-            new OpticStaffItem(new Item.Settings()
+            new OpticStaffItem(8, 40, 1200, new Item.Settings()
                     .maxCount(1)
                     .rarity(Rarity.EPIC)
                     .attributeModifiers(OpticStaffItem.createAttributeModifiers())
@@ -111,6 +112,7 @@ public class TerrarianItems {
                 entries.addAfter(Items.AMETHYST_SHARD, LIFE_SHARD));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(entries -> {
                 entries.addAfter(Items.MACE,
+                        WAND_OF_SPARKING,
                         AMETHYST_STAFF,
                         ZEPHYR_SCEPTER,
                         SLIME_STAFF,

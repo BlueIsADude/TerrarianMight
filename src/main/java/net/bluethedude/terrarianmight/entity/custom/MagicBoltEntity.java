@@ -45,11 +45,11 @@ public class MagicBoltEntity extends AbstractMagicProjectileEntity {
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         if (this.getWorld() instanceof ServerWorld serverWorld) {
-            Entity var7 = entityHitResult.getEntity();
-            Entity entity2 = this.getOwner();
-            DamageSource damageSource = this.getDamageSources().indirectMagic(this, entity2);
-            var7.damage(damageSource, 4.0F);
-            EnchantmentHelper.onTargetDamaged(serverWorld, var7, damageSource);
+            Entity entity = entityHitResult.getEntity();
+            Entity owner = this.getOwner();
+            DamageSource damageSource = this.getDamageSources().indirectMagic(this, owner);
+            entity.damage(damageSource, 4.0F);
+            EnchantmentHelper.onTargetDamaged(serverWorld, entity, damageSource);
         }
     }
 

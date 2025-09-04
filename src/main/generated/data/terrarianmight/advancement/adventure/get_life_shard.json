@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "get_life_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": "terrarianmight:life_shard"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.terrarianmight.get_life_shard.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "terrarianmight:life_shard"
+    },
+    "title": {
+      "translate": "advancements.terrarianmight.get_life_shard.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_life_shard"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

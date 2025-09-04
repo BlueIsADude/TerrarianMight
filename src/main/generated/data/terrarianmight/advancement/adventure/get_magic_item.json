@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "get_magic_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#terrarianmight:mana_weapons"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.terrarianmight.get_magic_item.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "terrarianmight:amethyst_staff"
+    },
+    "title": {
+      "translate": "advancements.terrarianmight.get_magic_item.title"
+    }
+  },
+  "requirements": [
+    [
+      "get_magic_item"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

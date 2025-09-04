@@ -1,0 +1,26 @@
+{
+  "parent": "terrarianmight:adventure/get_magic_item",
+  "criteria": {
+    "summon_minion": {
+      "trigger": "terrarianmight:summon_minion"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.terrarianmight.summon_minion.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "terrarianmight:slime_staff"
+    },
+    "title": {
+      "translate": "advancements.terrarianmight.summon_minion.title"
+    }
+  },
+  "requirements": [
+    [
+      "summon_minion"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

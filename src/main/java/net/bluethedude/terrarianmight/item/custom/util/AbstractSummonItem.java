@@ -3,19 +3,22 @@ package net.bluethedude.terrarianmight.item.custom.util;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
 import net.minecraft.world.World;
 
 public abstract class AbstractSummonItem extends AbstractMagicItem {
+    private final int summonLifespan;
 
-    public AbstractSummonItem(Settings settings) {
-        super(settings);
+    public AbstractSummonItem(int manaCost, int maxMana, int summonLifespan, Item.Settings settings) {
+        super(manaCost, maxMana, settings);
+        this.summonLifespan = summonLifespan;
     }
 
     public int getSummonLifespan() {
-        return 1;
+        return summonLifespan;
     }
 
     @Override

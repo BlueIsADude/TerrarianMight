@@ -4,12 +4,14 @@ import net.bluethedude.terrarianmight.TerrarianMight;
 import net.bluethedude.terrarianmight.TerrarianConfig;
 import net.bluethedude.terrarianmight.particle.TerrarianParticleTypes;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -77,8 +79,8 @@ public class LifeCrystalItem extends Item {
 
             EntityAttributeModifier modifier = new EntityAttributeModifier(CRYSTAL_HEALTH_MODIFIER, modifierValue, EntityAttributeModifier.Operation.ADD_VALUE);
             attribute.overwritePersistentModifier(modifier);
+            Criteria.USING_ITEM.trigger((ServerPlayerEntity) user, itemStack);
         }
-
         user.incrementStat(Stats.USED.getOrCreateStat(this));
         user.getItemCooldownManager().set(this, TerrarianConfig.crystalCooldown);
         itemStack.decrementUnlessCreative(1, user);

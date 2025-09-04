@@ -5,12 +5,15 @@
     "#": {
       "item": "minecraft:amethyst_shard"
     },
+    "O": {
+      "item": "minecraft:lapis_lazuli"
+    },
     "X": {
       "item": "minecraft:copper_ingot"
     }
   },
   "pattern": [
-    " ##",
+    " #O",
     " X#",
     "X  "
   ],

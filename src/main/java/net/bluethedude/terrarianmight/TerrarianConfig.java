@@ -15,7 +15,7 @@ public class TerrarianConfig extends MidnightConfig {
     @Entry(category = TERRARIAN_MIGHT, min = 0) public static int crystalGrowthChance = 2;
 
     @Comment(category = TERRARIAN_MIGHT, centered = true) public static Comment lifeFruit;
-    @Entry(category = TERRARIAN_MIGHT) public static boolean fruitNeedsMaxHealth = false;
+    @Entry(category = TERRARIAN_MIGHT) public static boolean fruitNeedsMaxHealth = true;
     @Entry(category = TERRARIAN_MIGHT, min = 0) public static int fruitCooldown = 500;
     @Entry(category = TERRARIAN_MIGHT, min = 0) public static int fruitDuration = 600;
     @Entry(category = TERRARIAN_MIGHT, min = 0, max = 255) public static int fruitAmplifier = 4;
@@ -24,15 +24,11 @@ public class TerrarianConfig extends MidnightConfig {
     @Entry(category = TERRARIAN_MIGHT) public static boolean lanternRepair = true;
     @Entry(category = TERRARIAN_MIGHT, min = 0) public static int lanternDuration = 400;
     @Entry(category = TERRARIAN_MIGHT, min = 0, max = 255) public static int lanternAmplifier = 0;
-    @Entry(category = TERRARIAN_MIGHT) public static LanternScalesEnum lanternScales = LanternScalesEnum.TRUE;
-    public enum LanternScalesEnum {
-        TRUE, INVERTED, FALSE
-    }
 
     @Comment(category = TERRARIAN_MIGHT, centered = true) public static Comment magic;
-    @Entry(category = TERRARIAN_MIGHT) public static boolean passiveManaGain = true;
-    @Condition(requiredOption = "passiveManaGain", requiredValue = "true")
-    @Entry(category = TERRARIAN_MIGHT) public static int manaGainTimer = 60;
+    @Entry(category = TERRARIAN_MIGHT) public static boolean passiveManaRegen = true;
+    @Condition(requiredOption = "passiveManaRegen", requiredValue = "true")
+    @Entry(category = TERRARIAN_MIGHT) public static int manaRegenRate = 60;
 
     @Comment(category = TERRARIAN_MIGHT, centered = true) public static Comment miscOptions;
     @Entry(category = TERRARIAN_MIGHT) public static boolean creativeTab = true;

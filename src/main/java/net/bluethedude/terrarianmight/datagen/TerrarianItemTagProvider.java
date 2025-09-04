@@ -75,17 +75,20 @@ public class TerrarianItemTagProvider extends FabricTagProvider.ItemTagProvider 
                 .add(TerrarianItems.YELLOW_WILLOW_HANGING_SIGN_ITEM);
 
         getOrCreateTagBuilder(TerrarianTags.Items.MAGIC_WEAPONS)
+                .add(TerrarianItems.WAND_OF_SPARKING)
                 .add(TerrarianItems.AMETHYST_STAFF)
-                .add(TerrarianItems.PORK_STORM)
-                .add(TerrarianItems.ZEPHYR_SCEPTER)
+                .add(TerrarianItems.ZEPHYR_SCEPTER);
+
+        getOrCreateTagBuilder(TerrarianTags.Items.SUMMON_WEAPONS)
                 .add(TerrarianItems.SLIME_STAFF)
                 .add(TerrarianItems.OPTIC_STAFF);
 
-        getOrCreateTagBuilder(ConventionalItemTags.TOOLS)
-                .addTag(TerrarianTags.Items.MAGIC_WEAPONS);
+        getOrCreateTagBuilder(TerrarianTags.Items.MANA_WEAPONS)
+                .addTag(TerrarianTags.Items.MAGIC_WEAPONS)
+                .addTag(TerrarianTags.Items.SUMMON_WEAPONS);
 
-        getOrCreateTagBuilder(TerrarianTags.Items.MAGIC_ENCHANTABLE)
-                .addTag(TerrarianTags.Items.MAGIC_WEAPONS);
+        getOrCreateTagBuilder(ConventionalItemTags.TOOLS)
+                .addTag(TerrarianTags.Items.MANA_WEAPONS);
 
 //        getOrCreateTagBuilder(ConventionalItemTags.MUSIC_DISCS)
 //                .add(TerrarianItems.MUSIC_DISC_HEARTFELT);

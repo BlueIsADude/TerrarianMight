@@ -68,25 +68,7 @@ public class HeartLanternBlock extends LanternBlock {
             if (blockState.isOf(TerrarianBlocks.BROKEN_HEART_LANTERN)) {
                 return ActionResult.FAIL;
             } else {
-                if (TerrarianConfig.lanternScales == TerrarianConfig.LanternScalesEnum.TRUE) {
-                    if (blockState.isOf(TerrarianBlocks.HEART_LANTERN)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier));
-                    } else if (blockState.isOf(TerrarianBlocks.CHIPPED_HEART_LANTERN)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier + 1));
-                    } else if (blockState.isOf(TerrarianBlocks.DAMAGED_HEART_LANTERN)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier + 2));
-                    }
-                } else if (TerrarianConfig.lanternScales == TerrarianConfig.LanternScalesEnum.INVERTED) {
-                    if (blockState.isOf(TerrarianBlocks.HEART_LANTERN)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier + 2));
-                    } else if (blockState.isOf(TerrarianBlocks.CHIPPED_HEART_LANTERN)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier + 1));
-                    } else if (blockState.isOf(TerrarianBlocks.DAMAGED_HEART_LANTERN)) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier));
-                    }
-                } else {
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier));
-                }
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, TerrarianConfig.lanternDuration, TerrarianConfig.lanternAmplifier));
                 ((ServerWorld) world).spawnParticles(TerrarianParticleTypes.LIFE_HEART,
                         pos.getX() + 0.5,
                         pos.getY() + 0.5,

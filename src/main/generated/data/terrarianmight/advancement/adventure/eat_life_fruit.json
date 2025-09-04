@@ -1,0 +1,31 @@
+{
+  "parent": "terrarianmight:adventure/use_life_crystal",
+  "criteria": {
+    "eat_life_fruit": {
+      "conditions": {
+        "item": {
+          "items": "terrarianmight:life_fruit"
+        }
+      },
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.terrarianmight.eat_life_fruit.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "terrarianmight:life_fruit"
+    },
+    "title": {
+      "translate": "advancements.terrarianmight.eat_life_fruit.title"
+    }
+  },
+  "requirements": [
+    [
+      "eat_life_fruit"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

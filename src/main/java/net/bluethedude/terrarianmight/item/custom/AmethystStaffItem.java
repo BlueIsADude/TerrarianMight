@@ -22,22 +22,11 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class AmethystStaffItem extends AbstractMagicItem {
+    private final int projectileLifespan;
 
-    public static final int MANA_COST = 1;
-    public static final int MAX_MANA = 50;
-
-    public AmethystStaffItem(Item.Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public int getManaCost() {
-        return MANA_COST;
-    }
-
-    @Override
-    public int getMaxMana(ItemStack stack) {
-        return MAX_MANA;
+    public AmethystStaffItem(int manaCost, int maxMana, int projectileLifespan, Item.Settings settings) {
+        super(manaCost, maxMana, settings);
+        this.projectileLifespan = projectileLifespan;
     }
 
     @Override
@@ -72,8 +61,9 @@ public class AmethystStaffItem extends AbstractMagicItem {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (user instanceof PlayerEntity playerEntity) {
             if (!world.isClient) {
-                MagicBoltEntity magicBoltEntity = new MagicBoltEntity(world, user);
-                magicBoltEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.0F, 1.0F);
+                MagicBoltEntity magicBoltEntity = new MagicBoltEntity(world, playerEntity);
+                shoot(playerEntity, magicBoltEntity, 1.0F, 1.0F);
+                magicBoltEntity.maxLifespan = projectileLifespan;
                 world.spawnEntity(magicBoltEntity);
             }
             world.playSound(

@@ -8,8 +8,6 @@
   "terrarianmight.midnightconfig.magic": "Mana, Magic, and Summons",
   "terrarianmight.midnightconfig.miscOptions": "Miscellaneous Options",
 
-  "terrarianmight.midnightconfig.creativeTab": "Enable Creative Tab",
-  "terrarianmight.midnightconfig.baseHealth": "Base Player Health",
   "terrarianmight.midnightconfig.crystalPermanentHealth": "Permanent Life Crystal Health",
   "terrarianmight.midnightconfig.crystalHealthGain": "Life Crystal Health Gain",
   "terrarianmight.midnightconfig.crystalMaxHealth": "Life Crystal Max Health",
@@ -23,8 +21,10 @@
   "terrarianmight.midnightconfig.lanternDuration": "Heart Lantern Duration",
   "terrarianmight.midnightconfig.lanternAmplifier": "Heart Lantern Amplifier",
   "terrarianmight.midnightconfig.lanternScales": "Scaling Lantern Amplifier",
-  "terrarianmight.midnightconfig.passiveManaGain": "Passive Mana Gain",
-  "terrarianmight.midnightconfig.manaGainTimer": "Mana Gain Timer",
+  "terrarianmight.midnightconfig.passiveManaRegen": "Passive Mana Regen",
+  "terrarianmight.midnightconfig.manaRegenRate": "Mana Regen Rate",
+  "terrarianmight.midnightconfig.creativeTab": "Enable Creative Tab",
+  "terrarianmight.midnightconfig.baseHealth": "Base Player Health",
 
   "terrarianmight.midnightconfig.crystalPermanentHealth.label.tooltip": "Whether or not health gained from Life Crystals is permanent.",
   "terrarianmight.midnightconfig.crystalPermanentHealth.tooltip": "NOTE: This option requires a world/server restart to be applied",
@@ -42,8 +42,8 @@
   "terrarianmight.midnightconfig.lanternDuration.label.tooltip": "The amount of time the Regeneration effect gained from Heart Lanterns lasts for.",
   "terrarianmight.midnightconfig.lanternAmplifier.label.tooltip": "The amplifier of the Regeneration effect gained from Heart Lanterns.",
   "terrarianmight.midnightconfig.lanternScales.label.tooltip": "Whether or not the level of the Heart Lantern's amplifier increases (by 1) depending on its damaged state.",
-  "terrarianmight.midnightconfig.passiveManaGain.label.tooltip": "Whether or not magic weapons passively regain mana when held.",
-  "terrarianmight.midnightconfig.manaGainTimer.label.tooltip": "The amount of time it takes for magic weapons to regain mana, if enabled.",
+  "terrarianmight.midnightconfig.passiveManaRegen.label.tooltip": "Whether or not magic weapons passively regain mana when held.",
+  "terrarianmight.midnightconfig.manaRegenRate.label.tooltip": "The amount of time it takes for magic weapons to regen mana, if enabled.",
   "terrarianmight.midnightconfig.creativeTab.label.tooltip": "Whether a designated creative mode tab for the mod's content is added or not.",
   "terrarianmight.midnightconfig.creativeTab.tooltip": "NOTE: This option requires a full game relaunch to be applied",
   "terrarianmight.midnightconfig.baseHealth.label.tooltip": "The amount of health that the player starts off with. Due to its janky nature, this option may be removed in the future.",
@@ -62,7 +62,8 @@
   "tag.item.terrarianmight.budding_life_crystals": "Budding Life Crystals",
 
   "tag.item.terrarianmight.magic_weapons": "Magic Weapons",
-  "tag.item.terrarianmight.magic_enchantable": "Enchantable Magic Weapons",
+  "tag.item.terrarianmight.summon_weapons": "Summon Weapons",
+  "tag.item.terrarianmight.mana_weapons": "Mana-Infused Weapons",
 
 
   "item.terrarianmight.life_shard": "Life Shard",
@@ -75,8 +76,8 @@
   "item.terrarianmight.yellow_willow_chest_boat": "Yellow Willow Chest Boat",
 
 
+  "item.terrarianmight.wand_of_sparking": "Wand of Sparking",
   "item.terrarianmight.amethyst_staff": "Amethyst Staff",
-  "item.terrarianmight.pork_storm": "Pork Storm",
   "item.terrarianmight.zephyr_scepter": "Zephyr Scepter",
   "item.terrarianmight.slime_staff": "Slime Staff",
   "item.terrarianmight.optic_staff": "Optic Staff",
@@ -125,6 +126,7 @@
   "enchantment.terrarianmight.arcane_": "Mana Capacity",
 
 
+  "entity.terrarianmight.spark": "Spark",
   "entity.terrarianmight.magic_bolt": "Magic Bolt",
   "entity.terrarianmight.end_laser": "End Laser",
 
@@ -153,8 +155,23 @@
   "subtitle.terrarianmight.twins.bite": "Twin Ender Eye bites",
 
 
-  "death.attack.laser": "%1$s was disintegrated",
-  "death.attack.laser.player": "%1$s was disintegrated by %2$s",
+  "death.attack.terrarianmight.laser": "%1$s was disintegrated by %2$s",
+  "death.attack.terrarianmight.spark_fire": "%1$s was burned to a crisp by %2$s",
+
+  "advancements.terrarianmight.get_life_shard.title": "Heart Breaker",
+  "advancements.terrarianmight.get_life_shard.description": "Obtain a Life Shard",
+  "advancements.terrarianmight.use_life_crystal.title": "Healthy Dose",
+  "advancements.terrarianmight.use_life_crystal.description": "Use a Life Crystal to boost your max health",
+  "advancements.terrarianmight.eat_life_fruit.title": "Topped Off",
+  "advancements.terrarianmight.eat_life_fruit.description": "Eat a Life Fruit",
+  "advancements.terrarianmight.use_heart_lantern.title": "Cracking Job, Mate",
+  "advancements.terrarianmight.use_heart_lantern.description": "Crack a Heart Lantern as a means to regen health",
+  "advancements.terrarianmight.repair_heart_lantern.title": "Refurbished",
+  "advancements.terrarianmight.repair_heart_lantern.description": "Repair a cracked Heart Lantern using Life Shards",
+  "advancements.terrarianmight.get_magic_item.title": "You're a Wizard!",
+  "advancements.terrarianmight.get_magic_item.description": "Obtain a magical weapon, imbued with mana",
+  "advancements.terrarianmight.summon_minion.title": "Personal Bodyguard",
+  "advancements.terrarianmight.summon_minion.description": "Summon a minion to temporarily fight with you",
 
 
   "tooltip.terrarianmight.item.when_used": "When Used:",
@@ -167,15 +184,17 @@
   "tooltip.terrarianmight.magic.mana": "Mana: %s / %s",
   "tooltip.terrarianmight.magic.mana_cost": "-%s Mana",
 
+  "tooltip.terrarianmight.magic_item.wand_of_sparking": "Fires a Spark",
   "tooltip.terrarianmight.magic_item.amethyst_staff": "Fires an Amethyst Bolt",
-  "tooltip.terrarianmight.magic_item.zephyr_scepter": "Fires 3 Wind Charges",
-
+  "tooltip.terrarianmight.magic_item.zephyr_scepter": "Fires 2 Wind Charges",
   "tooltip.terrarianmight.summon_item.slime_staff": "Summons a Slime Wolf",
   "tooltip.terrarianmight.summon_item.optic_staff": "Summons Twin Ender Eyes",
 
 
   "alert.terrarianmight.life_crystal_limit": "You have already reached max health!",
   "alert.terrarianmight.life_fruit_disallowed": "You haven't reached max health yet!",
+
+  "alert.terrarianmight.calmed_down": "%s is no longer angry.",
 
 
 

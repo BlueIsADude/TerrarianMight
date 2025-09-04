@@ -10,6 +10,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
@@ -20,27 +21,8 @@ import java.util.List;
 
 public class SlimeStaffItem extends AbstractSummonItem {
 
-    public static final int SUMMON_LIFESPAN = 600;
-    public static final int MANA_COST = 5;
-    public static final int MAX_MANA = 20;
-
-    public SlimeStaffItem(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public int getSummonLifespan() {
-        return SUMMON_LIFESPAN;
-    }
-
-    @Override
-    public int getManaCost() {
-        return MANA_COST;
-    }
-
-    @Override
-    public int getMaxMana(ItemStack stack) {
-        return MAX_MANA;
+    public SlimeStaffItem(int manaCost, int maxMana, int summonLifespan, Item.Settings settings) {
+        super(manaCost, maxMana, summonLifespan, settings);
     }
 
     @Override
@@ -77,6 +59,7 @@ public class SlimeStaffItem extends AbstractSummonItem {
         if (slimeWolfEntity != null) {
             slimeWolfEntity.refreshPositionAndAngles(x, y, z, world.getRandom().nextFloat() * 360.0F, 0.0F);
             slimeWolfEntity.setOwner(user);
+            slimeWolfEntity.maxLifespan = getSummonLifespan();
             world.spawnEntity(slimeWolfEntity);
         }
     }

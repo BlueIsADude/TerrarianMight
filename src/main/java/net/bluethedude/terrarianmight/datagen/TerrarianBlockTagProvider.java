@@ -22,9 +22,9 @@ public class TerrarianBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(TerrarianBlocks.MEDIUM_LIFE_CRYSTAL_BUD)
                 .add(TerrarianBlocks.LARGE_LIFE_CRYSTAL_BUD)
                 .add(TerrarianBlocks.LIFE_CRYSTAL_CLUSTER)
-                .add(TerrarianBlocks.BUDDING_LIFE_CRYSTAL)
-                .add(TerrarianBlocks.DEEPSLATE_BUDDING_LIFE_CRYSTAL)
-                .add(TerrarianBlocks.LIFE_CRYSTAL_BLOCK);
+                .addTag(TerrarianTags.Blocks.BUDDING_LIFE_CRYSTALS)
+                .add(TerrarianBlocks.LIFE_CRYSTAL_BLOCK)
+                .addTag(TerrarianTags.Blocks.HEART_LANTERNS);
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(TerrarianBlocks.YELLOW_WILLOW_LOG)

@@ -49,6 +49,7 @@ public class TerrarianItemGroups {
                         entries.add(TerrarianBlocks.DAMAGED_HEART_LANTERN);
                         entries.add(TerrarianBlocks.BROKEN_HEART_LANTERN);
                         entries.add(TerrarianItems.LIFE_FRUIT);
+                        entries.add(TerrarianItems.WAND_OF_SPARKING);
                         entries.add(TerrarianItems.AMETHYST_STAFF);
                         entries.add(TerrarianItems.ZEPHYR_SCEPTER);
                         entries.add(TerrarianItems.SLIME_STAFF);

@@ -1,7 +1,6 @@
 package net.bluethedude.terrarianmight.entity.custom;
 
 import net.bluethedude.terrarianmight.entity.custom.util.AbstractSummonEntity;
-import net.bluethedude.terrarianmight.item.custom.OpticStaffItem;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
@@ -46,7 +45,7 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
         this.goalSelector.add(1, new SwimGoal(this));
         this.goalSelector.add(1, new TameableEscapeDangerGoal(1.5, DamageTypeTags.PANIC_ENVIRONMENTAL_CAUSES));
         this.goalSelector.add(5, new RetinazerAttackGoal(this, 1.5, 12, 8.0f));
-        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0, 8.0F, 2.0F));
+        this.goalSelector.add(6, new FollowOwnerGoal(this, 1.0, 6.0F, 2.0F));
         this.goalSelector.add(8, new WanderAroundFarGoal(this, 1.0));
         this.goalSelector.add(10, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.add(10, new LookAroundGoal(this));
@@ -62,7 +61,7 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2F)
                 .add(EntityAttributes.GENERIC_FLYING_SPEED, 0.2F)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 30.0)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1.0);
     }
 
@@ -74,11 +73,6 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
     @Override
     protected SoundEvent getDeathSound() {
         return TerrarianSoundEvents.ENTITY_TWINS_DEATH;
-    }
-
-    @Override
-    public int getMaxLifetime() {
-        return OpticStaffItem.SUMMON_LIFESPAN;
     }
 
     @Override
@@ -122,6 +116,7 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
         double g = e - 1.1F;
         double h = Math.sqrt(d * d + f * f) * 0.2F;
         endLaserEntity.setVelocity(d, g + h, f, 1.5F, 1.0F);
+        endLaserEntity.maxLifespan = 16;
         this.playSound(TerrarianSoundEvents.ENTITY_TWINS_LASER_FIRE, 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
         this.getWorld().spawnEntity(endLaserEntity);
     }
@@ -140,7 +135,7 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
 
     // Retinazer custom attack goal goes here :)
     public static class RetinazerAttackGoal extends Goal {
-        private final MobEntity mob;
+        private final RetinazerEntity mob;
         private final RangedAttackMob owner;
         @Nullable
         private LivingEntity target;
@@ -164,7 +159,7 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
                 throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
             } else {
                 this.owner = mob;
-                this.mob = (MobEntity)mob;
+                this.mob = (RetinazerEntity) mob;
                 this.mobSpeed = mobSpeed;
                 this.minIntervalTicks = minIntervalTicks;
                 this.maxIntervalTicks = maxIntervalTicks;
@@ -177,11 +172,18 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
         @Override
         public boolean canStart() {
             LivingEntity livingEntity = this.mob.getTarget();
-            if (livingEntity != null && livingEntity.isAlive()) {
+            LivingEntity owner = this.mob.getOwner();
+            if (livingEntity == null) {
+                return false;
+            } else if (!livingEntity.isAlive()) {
+                return false;
+            } else if (!this.mob.canAttackWithOwner(livingEntity, owner)) {
+                return false;
+            } else if (this.mob.getAngerTime() == 0) {
+                return false;
+            } else {
                 this.target = livingEntity;
                 return true;
-            } else {
-                return false;
             }
         }
 
@@ -236,6 +238,11 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
             }
 
             if (this.combatTicks > -1) {
+                if (d > this.squaredMaxShootRange * 0.75F) {
+                    this.backward = false;
+                } else if (d < this.squaredMaxShootRange * 0.25F) {
+                    this.backward = true;
+                }
                 this.mob.getMoveControl().strafeTo(this.backward ? -0.5F : 0.5F, this.movingToLeft ? 0.5F : -0.5F);
             }
             this.mob.lookAtEntity(target, 180.0F, 180.0F);

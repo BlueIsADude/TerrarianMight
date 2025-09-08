@@ -6,6 +6,7 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.EntityPropertiesLootCondition;
 import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.entry.EmptyEntry;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
@@ -27,6 +28,9 @@ public class TerrarianLootTableModifiers {
             Identifier.ofVanilla("chests/end_city_treasure");
     private static final Identifier SLIME_ID =
             Identifier.ofVanilla("entities/slime");
+
+    private static final Identifier ENDERSCAPE_END_CITY_ID =
+            Identifier.of("enderscape", "end_city/vault");
 
     public static void modifyLootTables(){
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
@@ -86,6 +90,16 @@ public class TerrarianLootTableModifiers {
                                 )
                         )
                         .conditionally(RandomChanceLootCondition.builder(0.025f));
+                tableBuilder.pool(poolBuilder);
+                poolBuilder.build();
+            }
+
+            if (ENDERSCAPE_END_CITY_ID.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(EmptyEntry.builder().weight(60))
+                        .with(ItemEntry.builder(TerrarianItems.OPTIC_STAFF).weight(6))
+                        .apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1)).build());
                 tableBuilder.pool(poolBuilder);
                 poolBuilder.build();
             }

@@ -2,6 +2,8 @@ package net.bluethedude.terrarianmight.world;
 
 import net.bluethedude.terrarianmight.TerrarianMight;
 import net.bluethedude.terrarianmight.block.TerrarianBlocks;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.MushroomBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -21,6 +23,7 @@ import java.util.List;
 public class TerrarianConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> BUDDING_LIFE_CRYSTAL = registerKey("budding_life_crystal");
     public static final RegistryKey<ConfiguredFeature<?, ?>> YELLOW_WILLOW = registerKey("yellow_willow");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HUGE_GLOWING_MUSHROOM = registerKey("glowing_mushroom");
 
     public static TreeFeatureConfig.Builder yellowWillow() {
         return new TreeFeatureConfig.Builder(
@@ -38,6 +41,15 @@ public class TerrarianConfiguredFeatures {
         register(context, BUDDING_LIFE_CRYSTAL, Feature.ORE, new OreFeatureConfig(buddingLifeCrystals, 3));
 
         register(context, YELLOW_WILLOW, Feature.TREE, yellowWillow().build());
+
+        ConfiguredFeatures.register(context, HUGE_GLOWING_MUSHROOM,
+                Feature.HUGE_RED_MUSHROOM,
+                new HugeMushroomFeatureConfig(
+                        BlockStateProvider.of(Blocks.BLUE_WOOL.getDefaultState()),
+                        BlockStateProvider.of(Blocks.MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false).with(MushroomBlock.DOWN, false)),
+                        3
+                )
+        );
     }
 
     private static List<OreFeatureConfig.Target> getTargets() {

@@ -43,6 +43,9 @@ public class TerrarianMightClient implements ClientModInitializer {
 
         BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.YELLOW_WILLOW_DOOR, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.GLOWING_MUSHROOM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(TerrarianBlocks.POTTED_GLOWING_MUSHROOM, RenderLayer.getCutout());
+
         ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.LIFE_HEART, LifeHeartParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.MAGIC_BOLT, MagicBoltParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(TerrarianParticleTypes.MAGIC_BOLT_SMALL, MagicBoltParticle.SmallFactory::new);

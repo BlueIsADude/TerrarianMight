@@ -33,11 +33,24 @@ public class TerrarianBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD)
                 .add(TerrarianBlocks.YELLOW_WILLOW_PLANKS);
 
+        getOrCreateTagBuilder(BlockTags.LEAVES)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LEAVES);
+
+        getOrCreateTagBuilder(BlockTags.SAPLINGS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_SAPLING);
+
+        getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
+                .add(TerrarianBlocks.POTTED_YELLOW_WILLOW_SAPLING)
+                .add(TerrarianBlocks.POTTED_GLOWING_MUSHROOM);
+
         getOrCreateTagBuilder(BlockTags.LOGS)
                 .add(TerrarianBlocks.YELLOW_WILLOW_LOG)
                 .add(TerrarianBlocks.YELLOW_WILLOW_WOOD)
                 .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_LOG)
                 .add(TerrarianBlocks.STRIPPED_YELLOW_WILLOW_WOOD);
+
+        getOrCreateTagBuilder(BlockTags.OVERWORLD_NATURAL_LOGS)
+                .add(TerrarianBlocks.YELLOW_WILLOW_LOG);
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(TerrarianBlocks.YELLOW_WILLOW_LOG)

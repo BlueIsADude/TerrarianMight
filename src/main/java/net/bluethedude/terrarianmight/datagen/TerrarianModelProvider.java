@@ -54,6 +54,12 @@ public class TerrarianModelProvider extends FabricModelProvider {
                 TerrarianBlocks.YELLOW_WILLOW_HANGING_SIGN,
                 TerrarianBlocks.YELLOW_WILLOW_WALL_HANGING_SIGN
         );
+
+        blockStateModelGenerator.registerFlowerPotPlant(
+                TerrarianBlocks.GLOWING_MUSHROOM,
+                TerrarianBlocks.POTTED_GLOWING_MUSHROOM,
+                BlockStateModelGenerator.TintType.NOT_TINTED
+        );
     }
 
     @Override

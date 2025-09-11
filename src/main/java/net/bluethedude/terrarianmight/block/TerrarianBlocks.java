@@ -2,6 +2,7 @@ package net.bluethedude.terrarianmight.block;
 
 import net.bluethedude.terrarianmight.TerrarianMight;
 import net.bluethedude.terrarianmight.block.custom.*;
+import net.bluethedude.terrarianmight.world.TerrarianConfiguredFeatures;
 import net.bluethedude.terrarianmight.world.tree.TerrarianSaplingGenerator;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
@@ -326,6 +327,22 @@ public class TerrarianBlocks {
                     .dropsLike(YELLOW_WILLOW_HANGING_SIGN)
                     .burnable()
             )
+    );
+
+    public static final Block GLOWING_MUSHROOM = registerBlock("glowing_mushroom",
+            new MushroomPlantBlock(TerrarianConfiguredFeatures.HUGE_GLOWING_MUSHROOM, AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLUE)
+                    .breakInstantly()
+                    .noCollision()
+                    .ticksRandomly()
+                    .sounds(BlockSoundGroup.FUNGUS)
+                    .postProcess(Blocks::always)
+                    .emissiveLighting(Blocks::always)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+            )
+    );
+    public static final Block POTTED_GLOWING_MUSHROOM = registerItemlessBlock("potted_glowing_mushroom",
+            Blocks.createFlowerPotBlock(GLOWING_MUSHROOM)
     );
 
 

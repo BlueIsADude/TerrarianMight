@@ -1,5 +1,7 @@
 package net.bluethedude.terrarianmight.util;
 
+import java.util.Objects;
+
 import net.bluethedude.terrarianmight.TerrarianConfig;
 import net.bluethedude.terrarianmight.TerrarianMight;
 import net.bluethedude.terrarianmight.item.custom.LifeCrystalItem;
@@ -9,8 +11,6 @@ import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
-
-import java.util.Objects;
 
 public class TerrarianHealthManager {
 
@@ -52,7 +52,7 @@ public class TerrarianHealthManager {
                 assert oldModifier != null;
                 int maxHealth = (int) oldModifier.value() + 20;
 
-                Objects.requireNonNull(newPlayer.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH)).addPersistentModifier(oldModifier);
+                Objects.requireNonNull(newPlayer.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH));
                 newPlayer.setHealth(maxHealth);
             }
         }));

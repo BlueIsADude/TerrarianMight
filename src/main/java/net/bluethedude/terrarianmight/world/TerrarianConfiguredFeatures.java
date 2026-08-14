@@ -98,7 +98,7 @@ public class TerrarianConfiguredFeatures {
         ConfiguredFeatures.register(context, HUGE_GLOWING_MUSHROOM,
                 Feature.HUGE_RED_MUSHROOM,
                 new HugeMushroomFeatureConfig(
-                        BlockStateProvider.of(Blocks.BLUE_WOOL.getDefaultState()),
+                        BlockStateProvider.of(TerrarianBlocks.GLOWING_MOSS_BLOCK.getDefaultState()),
                         BlockStateProvider.of(Blocks.MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false).with(MushroomBlock.DOWN, false)),
                         1
                 )

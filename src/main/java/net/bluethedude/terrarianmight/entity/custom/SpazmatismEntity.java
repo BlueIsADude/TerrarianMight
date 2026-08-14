@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.BirdNavigation;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.Path;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -35,6 +36,11 @@ public class SpazmatismEntity extends AbstractSummonEntity {
         super(entityType, world);
         this.setTamed(false, false);
         this.moveControl = new FlightMoveControl(this, 20, true);
+        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.WATER_BORDER, 16.0F);
+        this.setPathfindingPenalty(PathNodeType.COCOA, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.FENCE, -1.0F);
     }
 
     @Override

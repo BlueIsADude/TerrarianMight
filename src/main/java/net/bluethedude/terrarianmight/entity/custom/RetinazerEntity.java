@@ -12,10 +12,12 @@ import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.BirdNavigation;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
+import net.minecraft.entity.ai.pathing.PathNodeType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.tag.DamageTypeTags;
@@ -33,6 +35,11 @@ public class RetinazerEntity extends AbstractSummonEntity implements RangedAttac
         super(entityType, world);
         this.setTamed(false, false);
         this.moveControl = new FlightMoveControl(this, 20, true);
+        this.setPathfindingPenalty(PathNodeType.DANGER_FIRE, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.WATER, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.WATER_BORDER, 16.0F);
+        this.setPathfindingPenalty(PathNodeType.COCOA, -1.0F);
+        this.setPathfindingPenalty(PathNodeType.FENCE, -1.0F);
     }
 
     @Override

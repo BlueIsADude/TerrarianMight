@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "terrarianmight:block/glowing_moss_block"
+  }
+}

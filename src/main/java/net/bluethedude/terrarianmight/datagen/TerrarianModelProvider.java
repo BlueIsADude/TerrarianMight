@@ -55,6 +55,10 @@ public class TerrarianModelProvider extends FabricModelProvider {
                 TerrarianBlocks.YELLOW_WILLOW_WALL_HANGING_SIGN
         );
 
+        blockStateModelGenerator.registerWoolAndCarpet(
+                TerrarianBlocks.GLOWING_MOSS_BLOCK,
+                TerrarianBlocks.GLOWING_MOSS_CARPET
+        );
         blockStateModelGenerator.registerFlowerPotPlant(
                 TerrarianBlocks.GLOWING_MUSHROOM,
                 TerrarianBlocks.POTTED_GLOWING_MUSHROOM,

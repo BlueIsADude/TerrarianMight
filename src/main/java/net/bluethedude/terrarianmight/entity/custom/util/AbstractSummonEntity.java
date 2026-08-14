@@ -1,7 +1,6 @@
 package net.bluethedude.terrarianmight.entity.custom.util;
 
 import net.bluethedude.terrarianmight.criterion.TerrarianCriteria;
-import net.bluethedude.terrarianmight.entity.custom.RetinazerEntity;
 import net.bluethedude.terrarianmight.sound.TerrarianSoundEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -160,14 +159,14 @@ public abstract class AbstractSummonEntity extends TameableEntity implements Ang
             return false;
         } else if (target instanceof AbstractSummonEntity summonEntity) {
             return !summonEntity.isTamed() || summonEntity.getOwner() != owner;
-        } else if (target instanceof RetinazerEntity retinazerEntity) {
-            return !retinazerEntity.isTamed() || retinazerEntity.getOwner() != owner;
-        } else if (target instanceof WolfEntity wolfEntity) {
-            return !wolfEntity.isTamed() || wolfEntity.getOwner() != owner;
-        } else if (target instanceof PlayerEntity playerEntity && owner instanceof PlayerEntity playerEntity2 && !playerEntity2.shouldDamagePlayer(playerEntity)) {
-            return false;
         } else {
-            return (!(target instanceof AbstractHorseEntity abstractHorseEntity) || !abstractHorseEntity.isTame()) && !(target instanceof TameableEntity tameableEntity && tameableEntity.isTamed());
+            if (target instanceof WolfEntity wolfEntity) {
+                return !wolfEntity.isTamed() || wolfEntity.getOwner() != owner;
+            } else if (target instanceof PlayerEntity playerEntity && owner instanceof PlayerEntity playerEntity2 && !playerEntity2.shouldDamagePlayer(playerEntity)) {
+                return false;
+            } else {
+                return (!(target instanceof AbstractHorseEntity abstractHorseEntity) || !abstractHorseEntity.isTame()) && !(target instanceof TameableEntity tameableEntity && tameableEntity.isTamed());
+            }
         }
     }
 

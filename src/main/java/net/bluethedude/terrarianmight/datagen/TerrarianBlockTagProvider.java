@@ -123,5 +123,14 @@ public class TerrarianBlockTagProvider extends FabricTagProvider.BlockTagProvide
                 .add(TerrarianBlocks.CHIPPED_HEART_LANTERN)
                 .add(TerrarianBlocks.DAMAGED_HEART_LANTERN)
                 .add(TerrarianBlocks.BROKEN_HEART_LANTERN);
+
+        getOrCreateTagBuilder(BlockTags.DIRT)
+                .add(TerrarianBlocks.GLOWING_MOSS_BLOCK);
+
+        getOrCreateTagBuilder(BlockTags.SNIFFER_DIGGABLE_BLOCK)
+                .add(TerrarianBlocks.GLOWING_MOSS_BLOCK);
+
+        getOrCreateTagBuilder(BlockTags.MUSHROOM_GROW_BLOCK)
+                .add(TerrarianBlocks.GLOWING_MOSS_BLOCK);
     }
 }

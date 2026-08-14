@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
@@ -329,6 +330,30 @@ public class TerrarianBlocks {
             )
     );
 
+    public static final Block GLOWING_MOSS_BLOCK = registerBlock("glowing_moss_block",
+            new GlowingMossBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLUE)
+                    .strength(0.1F)
+                    .sounds(BlockSoundGroup.MOSS_BLOCK)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .luminance(state -> 1)
+                    .allowsSpawning(Blocks::always)
+                    .postProcess(Blocks::always)
+                    .emissiveLighting(Blocks::always)
+            )
+    );
+    public static final Block GLOWING_MOSS_CARPET = registerBlock("glowing_moss_carpet",
+            new CarpetBlock(AbstractBlock.Settings.create()
+                    .mapColor(MapColor.BLUE)
+                    .strength(0.1F)
+                    .sounds(BlockSoundGroup.MOSS_BLOCK)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .luminance(state -> 1)
+                    .allowsSpawning(Blocks::always)
+                    .postProcess(Blocks::always)
+                    .emissiveLighting(Blocks::always)
+            )
+    );
     public static final Block GLOWING_MUSHROOM = registerBlock("glowing_mushroom",
             new MushroomPlantBlock(TerrarianConfiguredFeatures.HUGE_GLOWING_MUSHROOM, AbstractBlock.Settings.create()
                     .mapColor(MapColor.BLUE)
@@ -336,13 +361,22 @@ public class TerrarianBlocks {
                     .noCollision()
                     .ticksRandomly()
                     .sounds(BlockSoundGroup.FUNGUS)
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .luminance(state -> 1)
+                    .allowsSpawning(Blocks::always)
                     .postProcess(Blocks::always)
                     .emissiveLighting(Blocks::always)
-                    .pistonBehavior(PistonBehavior.DESTROY)
             )
     );
     public static final Block POTTED_GLOWING_MUSHROOM = registerItemlessBlock("potted_glowing_mushroom",
-            Blocks.createFlowerPotBlock(GLOWING_MUSHROOM)
+            new FlowerPotBlock(GLOWING_MUSHROOM, AbstractBlock.Settings.create()
+                    .breakInstantly()
+                    .nonOpaque()
+                    .pistonBehavior(PistonBehavior.DESTROY)
+                    .luminance(state -> 5)
+                    .postProcess(Blocks::always)
+                    .emissiveLighting(Blocks::always)
+            )
     );
 
 

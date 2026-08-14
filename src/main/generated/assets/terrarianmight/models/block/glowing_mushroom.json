@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "terrarianmight:block/glowing_mushroom"
+  }
+}

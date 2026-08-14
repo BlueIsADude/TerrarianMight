@@ -122,12 +122,10 @@
   "block.terrarianmight.yellow_willow_sign": "Yellow Willow Sign",
   "block.terrarianmight.yellow_willow_hanging_sign": "Yellow Willow Hanging Sign",
 
+  "block.terrarianmight.glowing_moss_block": "Glowing Moss Block",
+  "block.terrarianmight.glowing_moss_carpet": "Glowing Moss Carpet",
   "block.terrarianmight.glowing_mushroom": "Glowing Mushroom",
   "block.terrarianmight.potted_glowing_mushroom": "Potted Glowing Mushroom",
-
-
-  "enchantment.terrarianmight.mana_capacity": "Mana Capacity",
-  "enchantment.terrarianmight.arcane_": "Mana Capacity",
 
 
   "entity.terrarianmight.spark": "Spark",

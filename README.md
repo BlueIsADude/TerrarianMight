@@ -3,7 +3,7 @@ Terrarian Might is a mod that adds content from the hit indie game Terraria, wit
 For Terraria-themed GUI, check out my resource pack, [Terrarian Spirit](https://modrinth.com/resourcepack/terrarian-spirit)!
 
 <details>
-<summary>Content Drop 1: Healthy Dose</summary>
+<summary>Current Features</summary>
 
 ## Budding Life Crystals and Life Shards
 **Budding Life Crystals** can be found around the diamond level of the underground, and will slowly grow **Life Crystal Clusters**. These can be mined with a regular pickaxe to get **Life Shards**, or a Silk Touch pickaxe to be used as decoration. Budding Life Crystals cannot be mined with silk touch, and there is no way to accelerate crystal growth. Unlike Budding Amethyst however, Budding Life Crystals will also drop Life Shards when broken, albeit not nearly as many.
@@ -21,8 +21,14 @@ Surrounding a Lantern with 4 Life Shards will net you a **Heart Lantern**! This 
 ## Yellow Willow Trees
 Spawning rarely in forests and plains, these Yellow Willow trees offer not only new yellow leaves and vines, but also a new Yellow Willow wood set! If you're having trouble finding them however, you can also get them from the Wandering Trader!
 
-## Secrets?
-There are features in the mod that, currently, are not listed here. I suggest you download the mod, use the base config options, hop onto a survival world, and find these yourself naturally... I wont spoil what you may find, but I'm sure you'll have a *magical* experience. ;)
+## Magic Weapons
+There are various magic weapons hidden throughout minecraft's progression, that do various different things. All Magic weapons have a set Mana Amount and Mana Cost. Magic Weapons regain mana when manually striking a foe with them.
+
+- Wand Of Sparking: Found in Dungeons, Mineshafts, and Jungle Temples. Fires a small spark that can light mobs on fire.
+- Amethyst Staff: Crafted with 2 Copper and 1 Amethyst Shard. Fires an Amethyst Bolt that flies in a straight line but has a limited range.
+- Zephyr Staff: Found in the Vault's unique loot table. Fires 2 Wind Charges at the same time.
+- Slime Staff: Drops rarely from slain Slimes. Summons a Slime Wolf to fight for you.
+- Optic Staff: Found very rarely in End City chest loot (or in End Vault loot if Enderscape is installed). Summons two living eyes of ender, Spazmatism and Retinazer, to fight for you. Spazmatism moves quickly and bites mobs, while Retinazer fires End Lazers from a distance.
 </details>
 
 ## Known Issues
@@ -34,7 +40,6 @@ These are all the currently planned mod features! Note that nothing here is conc
 
 ### Next Update
 - Glowing Mushroom Fields! Found similarly to Lush Caves, featuring Spore Bats and other mushroom-themed mobs!
-- Cluster Potions! Mutated bottles that are able to hold 3 charges worth of potion! Made by brewing any potion with a Glowing Mushroom.
 ### Considered
 - Lunar Events! Rare events to make your nights (or days) tougher! Usually require a special item to start.
 ### Likely Won't Be Added
